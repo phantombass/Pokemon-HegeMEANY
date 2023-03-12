@@ -1,0 +1,5 @@
+Name         = Phantombass AI
+Version      = 1.0
+Essentials = 20.1
+Website      = https://reliccastle.com/members/7217/
+Credits      = Phantombass, adapted from an AI made by Marin

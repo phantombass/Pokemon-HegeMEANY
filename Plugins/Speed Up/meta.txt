@@ -1,0 +1,5 @@
+Name         = Speed Up
+Version      = 2.0
+Essentials = 20.1
+Website      = https://reliccastle.com/members/7217/
+Credits      = Phantombass

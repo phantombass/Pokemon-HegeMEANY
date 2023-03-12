@@ -1,0 +1,122 @@
+﻿# See the documentation on the wiki to learn how to edit this file.
+#-------------------------------
+[033] # Wild 1
+Land,21
+    20,ELECTRIKE,6,10
+    20,KLINK,6,10
+    10,PIDGEY,6,10
+    10,KRICKETOT,6,10
+    10,NINCADA,6,10
+    10,RATTATA,6,10
+    9,MIMEJR,6,10
+    9,RUFFLET_1,6,10
+    2,VOLTORB_1,6,10
+    2,GROWLITHE_1,6,10
+    2,WOOPER_1,10,10
+    1,PHIONE,10,10
+#-------------------------------
+[042] # Wild 2
+Land,21
+    20,ELECTRIKE,6,10
+    20,KLINK,6,10
+    10,PIDGEY,6,10
+    10,KRICKETOT,6,10
+    10,NINCADA,6,10
+    10,RATTATA,6,10
+    9,MIMEJR,6,10
+    9,RUFFLET_1,6,10
+    2,VOLTORB_1,6,10
+    2,GROWLITHE_1,6,10
+    2,WOOPER_1,10,10
+    1,PHIONE,10,10
+#-------------------------------
+[043] # Wild 3
+Cave,5
+    20,ELECTRIKE,6,10
+    20,KLINK,6,10
+    10,PIDGEY,6,10
+    10,KRICKETOT,6,10
+    10,NINCADA,6,10
+    10,RATTATA,6,10
+    9,MIMEJR,6,10
+    9,RUFFLET_1,6,10
+    2,VOLTORB_1,6,10
+    2,GROWLITHE_1,6,10
+    2,WOOPER_1,10,10
+    1,PHIONE,10,10
+#-------------------------------
+[048] # Wild 4
+Cave,5
+    20,ELECTRIKE,6,10
+    20,KLINK,6,10
+    10,PIDGEY,6,10
+    10,KRICKETOT,6,10
+    10,NINCADA,6,10
+    10,RATTATA,6,10
+    9,MIMEJR,6,10
+    9,RUFFLET_1,6,10
+    2,VOLTORB_1,6,10
+    2,GROWLITHE_1,6,10
+    2,WOOPER_1,10,10
+    1,PHIONE,10,10
+#-------------------------------
+[076] # Wild 5
+Cave,5
+    20,ELECTRIKE,6,10
+    20,KLINK,6,10
+    10,PIDGEY,6,10
+    10,KRICKETOT,6,10
+    10,NINCADA,6,10
+    10,RATTATA,6,10
+    9,MIMEJR,6,10
+    9,RUFFLET_1,6,10
+    2,VOLTORB_1,6,10
+    2,GROWLITHE_1,6,10
+    2,WOOPER_1,10,10
+    1,PHIONE,10,10
+#-------------------------------
+[077] # Wild 6
+Cave,5
+    20,ELECTRIKE,6,10
+    20,KLINK,6,10
+    10,PIDGEY,6,10
+    10,KRICKETOT,6,10
+    10,NINCADA,6,10
+    10,RATTATA,6,10
+    9,MIMEJR,6,10
+    9,RUFFLET_1,6,10
+    2,VOLTORB_1,6,10
+    2,GROWLITHE_1,6,10
+    2,WOOPER_1,10,10
+    1,PHIONE,10,10
+#-------------------------------
+[078] # Wild 7
+Cave,5
+    20,ELECTRIKE,6,10
+    20,KLINK,6,10
+    10,PIDGEY,6,10
+    10,KRICKETOT,6,10
+    10,NINCADA,6,10
+    10,RATTATA,6,10
+    9,MIMEJR,6,10
+    9,RUFFLET_1,6,10
+    2,VOLTORB_1,6,10
+    2,GROWLITHE_1,6,10
+    2,WOOPER_1,10,10
+    1,PHIONE,10,10
+#-------------------------------
+[079] # Wild 8
+Cave,5
+    20,ELECTRIKE,6,10
+    20,KLINK,6,10
+    10,PIDGEY,6,10
+    10,KRICKETOT,6,10
+    10,NINCADA,6,10
+    10,RATTATA,6,10
+    9,MIMEJR,6,10
+    9,RUFFLET_1,6,10
+    2,VOLTORB_1,6,10
+    2,GROWLITHE_1,6,10
+    2,WOOPER_1,10,10
+    1,PHIONE,10,10
+#-------------------------------

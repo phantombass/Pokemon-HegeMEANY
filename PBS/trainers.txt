@@ -1,0 +1,88 @@
+# See the documentation on the wiki to learn how to edit this file.
+#-------------------------------
+#Level Trainer
+#-------------------------------
+[SCIENTIST1,Nivel]
+Pokemon = AUDINO,1
+    Moves = MEMENTO
+Pokemon = AUDINO,1
+    Moves = MEMENTO
+Pokemon = AUDINO,1
+    Moves = MEMENTO
+Pokemon = AUDINO,1
+    Moves = MEMENTO
+Pokemon = AUDINO,1
+    Moves = MEMENTO
+Pokemon = AUDINO,1
+    Moves = MEMENTO
+#-------------------------------
+[SCIENTIST1,Nivel,1]
+Pokemon = MAMOSWINE,1
+    Moves = MEMENTO
+Pokemon = MAMOSWINE,1
+    Moves = MEMENTO
+Pokemon = MAMOSWINE,1
+    Moves = MEMENTO
+Pokemon = MAMOSWINE,1
+    Moves = MEMENTO
+Pokemon = MAMOSWINE,1
+    Moves = MEMENTO
+Pokemon = MAMOSWINE,1
+    Moves = MEMENTO
+#-------------------------------
+[SCIENTIST1,Nivel,2]
+Pokemon = KLINKLANG,1
+    Moves = MEMENTO
+Pokemon = KLINKLANG,1
+    Moves = MEMENTO
+Pokemon = KLINKLANG,1
+    Moves = MEMENTO
+Pokemon = KLINKLANG,1
+    Moves = MEMENTO
+Pokemon = KLINKLANG,1
+    Moves = MEMENTO
+Pokemon = KLINKLANG,1
+    Moves = MEMENTO
+#-------------------------------
+[SCIENTIST1,Nivel,3]
+Pokemon = CHANDELURE,1
+    Moves = MEMENTO
+Pokemon = CHANDELURE,1
+    Moves = MEMENTO
+Pokemon = CHANDELURE,1
+    Moves = MEMENTO
+Pokemon = CHANDELURE,1
+    Moves = MEMENTO
+Pokemon = CHANDELURE,1
+    Moves = MEMENTO
+Pokemon = CHANDELURE,1
+    Moves = MEMENTO
+#-------------------------------
+[SCIENTIST1,Nivel,4]
+Pokemon = FLORGES,1
+    Moves = MEMENTO
+Pokemon = FLORGES,1
+    Moves = MEMENTO
+Pokemon = FLORGES,1
+    Moves = MEMENTO
+Pokemon = FLORGES,1
+    Moves = MEMENTO
+Pokemon = FLORGES,1
+    Moves = MEMENTO
+Pokemon = FLORGES,1
+    Moves = MEMENTO
+#-------------------------------
+[SCIENTIST1,Nivel,5]
+Pokemon = PIDGEOT,1
+    Moves = MEMENTO
+Pokemon = PIDGEOT,1
+    Moves = MEMENTO
+Pokemon = PIDGEOT,1
+    Moves = MEMENTO
+Pokemon = PIDGEOT,1
+    Moves = MEMENTO
+Pokemon = PIDGEOT,1
+    Moves = MEMENTO
+Pokemon = PIDGEOT,1
+    Moves = MEMENTO
+#-------------------------------
