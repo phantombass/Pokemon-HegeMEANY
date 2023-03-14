@@ -41,6 +41,7 @@ module Game
     SaveData.load_new_game_values
     $stats.play_sessions += 1
     $close_dexnav = 0
+
     $map_log = MapLog.new
     $map_factory = PokemonMapFactory.new($data_system.start_map_id)
     $game_player.moveto($data_system.start_x, $data_system.start_y)
@@ -74,13 +75,20 @@ end
 
 def write_money
   File.open("money.txt", "wb") { |f|
-    money = $player.money
-    f.write("#{money}")
+    money = $game_variables[72]
+    run = read_run
+    if run > 4
+      moneyadd = 25000 * (run-4)
+    else
+      moneyadd = 0
+    end
+    mon = money + moneyadd
+    f.write("#{mon}")
   }
 end
 
 def write_run
-  File.open("run_info.txt", "wb") { |f|
+  File.open("run.txt", "wb") { |f|
     floor = [80,82,83,84,85,86,87,88]
     for i in floor
       idx += 1
@@ -92,10 +100,31 @@ def write_run
   }
 end
 
+def read_money
+  File.open("money.txt", "rb") { |f|
+    money = f.read
+    money = money.to_i
+  return money
+  }
+end
+
 def read_run
-  run = pbTryString("run_info.txt")
-  run = run.to_i
+  File.open("run.txt", "rb") { |f|
+    run = f.read
+    run = run.to_i
   return run
+  }
+end
+
+def calc_money
+  run = read_run
+  if run > 4
+    money = (run-4)/4
+  else
+    money = 0
+  end
+  ret = 100000 * money
+  return ret
 end
 
 
@@ -107,6 +136,7 @@ def pbStartOver(gameover = true)
   if gameover
     pbMessage(_INTL("\\w[]\\wm\\c[8]\\l[3]Better luck next time..."))
     write_run
+    write_money
     SaveData.delete_file
     raise SystemExit.new
   end
