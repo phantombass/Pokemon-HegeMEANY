@@ -827,6 +827,14 @@ Battle::AbilityEffects::PriorityChange.add(:PRANKSTER,
   }
 )
 
+Battle::AbilityEffects::PriorityChange.add(:ADAPTABELL,
+  proc { |ability, battler, move, pri|
+    if move.statusMove?
+      next pri + 2
+    end
+  }
+)
+
 Battle::AbilityEffects::PriorityChange.add(:TRIAGE,
   proc { |ability, battler, move, pri|
     next pri + 3 if move.healingMove?
@@ -1277,7 +1285,7 @@ Battle::AbilityEffects::DamageCalcFromUser.add(:HUGEPOWER,
   }
 )
 
-Battle::AbilityEffects::DamageCalcFromUser.copy(:HUGEPOWER, :PUREPOWER)
+Battle::AbilityEffects::DamageCalcFromUser.copy(:HUGEPOWER, :PUREPOWER, :DARLING)
 
 Battle::AbilityEffects::DamageCalcFromUser.add(:HUSTLE,
   proc { |ability, user, target, move, mults, baseDmg, type|
@@ -1329,6 +1337,8 @@ Battle::AbilityEffects::DamageCalcFromUser.add(:PUNKROCK,
     mults[:attack_multiplier] *= 1.3 if move.soundMove?
   }
 )
+
+Battle::AbilityEffects::DamageCalcFromUser.copy(:PUNKROCK, :AMPEDUP)
 
 Battle::AbilityEffects::DamageCalcFromUser.add(:RECKLESS,
   proc { |ability, user, target, move, mults, baseDmg, type|
@@ -1579,6 +1589,8 @@ Battle::AbilityEffects::DamageCalcFromTarget.add(:PUNKROCK,
   }
 )
 
+Battle::AbilityEffects::DamageCalcFromTarget.copy(:PUNKROCK, :AMPEDUP)
+
 Battle::AbilityEffects::DamageCalcFromTarget.add(:THICKFAT,
   proc { |ability, user, target, move, mults, baseDmg, type|
     mults[:base_damage_multiplier] /= 2 if [:FIRE, :ICE].include?(type)
@@ -1767,6 +1779,8 @@ Battle::AbilityEffects::OnBeingHit.add(:CUTECHARM,
     battle.pbHideAbilitySplash(target)
   }
 )
+
+Battle::AbilityEffects::OnBeingHit.copy(:CUTECHARM,:DARLING)
 
 Battle::AbilityEffects::OnBeingHit.add(:EFFECTSPORE,
   proc { |ability, user, target, move, battle|
@@ -2896,6 +2910,8 @@ Battle::AbilityEffects::OnSwitchIn.add(:MOLDBREAKER,
     battle.pbHideAbilitySplash(battler)
   }
 )
+
+Battle::AbilityEffects::OnSwitchIn.copy(:MOLDBREAKER,:CLEANWATER)
 
 Battle::AbilityEffects::OnSwitchIn.add(:NEUTRALIZINGGAS,
   proc { |ability, battler, battle, switch_in|

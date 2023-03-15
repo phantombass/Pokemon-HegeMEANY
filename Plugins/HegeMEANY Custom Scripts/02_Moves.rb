@@ -1514,3 +1514,22 @@ class Battle::Move::UseMoveDependingOnEnvironment < Battle::Move
     user.pbUseMoveSimple(@npMove, target.index)
   end
 end
+
+class Battle::Move::RaiseUserSpAtk1Spd2 < Battle::Move::MultiStatUpMove
+  def initialize(battle, move)
+    super
+    @statUp = [:SPEED, 2, :SPECIAL_ATTACK, 1]
+  end
+end
+
+class Battle::Move::RaiseUserAcc2AlwaysCrit < Battle::Move::StatUpMove
+  def initialize(battle, move)
+    super
+    @statUp = [:ACCURACY,2]
+  end
+
+  def pbEffectGeneral(user)
+    super
+    user.effects[PBEffects::CaennerbongDance] = true
+  end
+end

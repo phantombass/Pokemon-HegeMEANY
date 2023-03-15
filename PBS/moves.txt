@@ -3133,7 +3133,7 @@ Name = Roost
 Type = FLYING
 Category = Status
 Accuracy = 0
-TotalPP = 5
+TotalPP = 10
 Target = User
 FunctionCode = HealUserHalfOfTotalHPLoseFlyingTypeThisTurn
 Description = The user lands and rests its body. It restores the user's HP by up to half of its max HP.
@@ -6284,7 +6284,7 @@ Name = Recover
 Type = NORMAL
 Category = Status
 Accuracy = 0
-TotalPP = 5
+TotalPP = 10
 Target = User
 FunctionCode = HealUserHalfOfTotalHP
 Description = Restoring its own cells, the user restores its own HP by half of its max HP.
@@ -6421,7 +6421,7 @@ Name = Slack Off
 Type = NORMAL
 Category = Status
 Accuracy = 0
-TotalPP = 5
+TotalPP = 10
 Target = User
 FunctionCode = HealUserHalfOfTotalHP
 Description = The user slacks off, restoring its own HP by up to half of its maximum HP.
@@ -7635,7 +7635,7 @@ Name = Rest
 Type = PSYCHIC
 Category = Status
 Accuracy = 0
-TotalPP = 5
+TotalPP = 10
 Target = User
 FunctionCode = HealUserFullyAndFallAsleep
 Description = The user goes to sleep for two turns. It fully restores the user's HP and heals any status problem.
@@ -9627,3 +9627,74 @@ EffectChance = 10
 FunctionCode = BPRaiseWhileElectricTerrain
 Flags = CanProtect, CanMirrorMove, Slicing
 Description = The user rends the target with an ethereal blade. This move's power is boosted by 50 percent if the user is on Electric Terrain.
+#-------------------------------
+[HAUNTEDBLADE]
+Name = Haunted Blade
+Type = GHOST
+Category = Physical
+Power = 90
+Accuracy = 100
+TotalPP = 15
+Target = NearOther
+FunctionCode = IgnoreTargetDefSpDefEvaStatStages
+Flags = Contact,CanProtect,CanMirrorMove,Slicing
+Description = The user attacks by slicing with its long horns. The target's stat changes don't affect the damage.
+#-------------------------------
+[PEALPULSE]
+Name = Peal Pulse
+Type = NORMAL
+Category = Special
+Power = 90
+Accuracy = 100
+TotalPP = 15
+Target = NearOther
+FunctionCode = TypeIsUserFirstType
+Flags = CanProtect,CanMirrorMove,Sound
+Description = The user attacks the target by dancing very hard. The user's type determines the type of this move.
+#-------------------------------
+[HAUNTEDFIST]
+Name = Haunted Fist
+Type = GHOST
+Category = Physical
+Power = 80
+Accuracy = 100
+TotalPP = 5
+Target = NearOther
+FunctionCode = AlwaysCriticalHit
+Flags = Contact,CanProtect,CanMirrorMove,Punching
+Description = Always results in a critical hit.
+#-------------------------------
+[THUNDERHOOF]
+Name = Thunder Hoof
+Type = ELECTRIC
+Category = Physical
+Power = 95
+Accuracy = 100
+TotalPP = 10
+Target = NearOther
+FunctionCode = IgnoreTargetAbility
+Flags = Contact,CanProtect,CanMirrorMove,CannotMetronome
+Description = The user slams into the target with the force of a meteor. Can't be stopped by the target's Ability.
+#-------------------------------
+[WARMUP]
+Name = Warm Up
+Type = NORMAL
+Category = Status
+Accuracy = 0
+TotalPP = 10
+Target = User
+FunctionCode = RaiseUserSpAtk1Spd2
+Flags = Sound
+Description = The user warms up, raising its SpAtk and sharply raising its Speed.
+#-------------------------------
+[CAERBANNONGDANCE]
+Name = Caerbannong Dance
+Type = NORMAL
+Category = Status
+Accuracy = 0
+TotalPP = 10
+Target = User
+FunctionCode = RaiseUserAcc2AlwaysCrit
+Flags = Sound
+Description = The user warms up, raising its SpAtk and sharply raising its Speed.
+#-------------------------------

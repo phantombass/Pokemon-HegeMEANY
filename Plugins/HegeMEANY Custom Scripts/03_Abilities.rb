@@ -217,6 +217,7 @@ class Battle::Battler
     @effects[PBEffects::WaterSport]          = false
     @effects[PBEffects::WeightChange]        = 0
     @effects[PBEffects::Yawn]                = 0
+    @effects[PBEffects::CaennerbongDance]    = false
   end
   def pbEndTurn(_choice)
     @lastRoundMoved = @battle.turnCount   # Done something this round
@@ -1225,188 +1226,7 @@ Battle::AbilityEffects::MoveImmunity.add(:SCALER,
     next true
   }
 )
-Battle::AbilityEffects::MoveImmunity.add(:DEFROST,
-  proc { |ability, user, target, move, type, battle, show_message|
-    next false if type!=:ICE
-    if show_message
-      battle.pbShowAbilitySplash(target)
-      if Battle::Scene::USE_ABILITY_SPLASH
-        battle.pbDisplay(_INTL("It doesn't affect {1}...", target.pbThis(true)))
-      else
-        battle.pbDisplay(_INTL("{1}'s {2} made {3} ineffective!",
-           target.pbThis, target.abilityName, move.name))
-      end
-      battle.pbHideAbilitySplash(target)
-    end
-    next true
-  }
-)
-Battle::AbilityEffects::MoveImmunity.add(:IRRIGATION,
-  proc { |ability, user, target, move, type, battle, show_message|
-    next false if type!=:WATER
-    if show_message
-      battle.pbShowAbilitySplash(target)
-      if Battle::Scene::USE_ABILITY_SPLASH
-        battle.pbDisplay(_INTL("It doesn't affect {1}...", target.pbThis(true)))
-      else
-        battle.pbDisplay(_INTL("{1}'s {2} made {3} ineffective!",
-           target.pbThis, target.abilityName, move.name))
-      end
-      battle.pbHideAbilitySplash(target)
-    end
-    next true
-  }
-)
-Battle::AbilityEffects::EndOfRoundWeather.copy(:RAINDISH,:IRRIGATION)
-Battle::AbilityEffects::AccuracyCalcFromTarget.add(:SANDVEIL,
-  proc { |ability, mods, user, target, move, type|
-    mods[:evasion_multiplier] *= 1.25 if (target.effectiveWeather == :Sandstorm || target.effectiveField == :Desert)
-  }
-)
-Battle::AbilityEffects::SpeedCalc.add(:SANDRUSH,
-  proc { |ability, battler, mult|
-    next mult * 2 if ([:Sandstorm].include?(battler.effectiveWeather) || [:Desert].include?(battler.effectiveField))
-  }
-)
-Battle::AbilityEffects::DamageCalcFromUser.add(:SANDFORCE,
-  proc { |ability, user, target, move, mults, baseDmg, type|
-    if (user.effectiveWeather == :Sandstorm || user.effectiveField == :Desert) &&
-       [:ROCK, :GROUND, :STEEL].include?(type)
-      mults[:base_damage_multiplier] *= 1.3
-    end
-  }
-)
 
-Battle::AbilityEffects::OnSwitchIn.add(:FLASHFIRE,
-  proc { |ability, battler, battle, switch_in|
-    if battle.field.field_effects == :Lava || battle.field.field_effects == :Fire
-      battle.pbShowAbilitySplash(battler)
-      battle.pbDisplay(_INTL("The heat boosted the power of {1}'s Fire-type moves!", battler.pbThis(true)))
-      battle.pbHideAbilitySplash(battler)
-    end
-  }
-)
-Battle::AbilityEffects::OnSwitchIn.add(:GRASSPELT,
-  proc { |ability, battler, battle, switch_in|
-    if battle.field.field_effects == :Garden
-      battle.pbShowAbilitySplash(battler)
-      battle.pbDisplay(_INTL("The garden activated {1}'s Grass Pelt!", battler.pbThis(true)))
-      battler.pbRaiseStatStageByAbility(:DEFENSE, 1, battler)
-      battle.pbHideAbilitySplash(battler)
-    end
-  }
-)
-Battle::AbilityEffects::OnSwitchIn.add(:LEAFGUARD,
-  proc { |ability, battler, battle, switch_in|
-    if battle.field.field_effects == :Garden || battle.field.field_effects == :Swamp
-      battle.pbShowAbilitySplash(battler)
-      battle.pbDisplay(_INTL("{1}'s Leaf Guard was activated by the field!", battler.pbThis(true)))
-      battle.pbHideAbilitySplash(battler)
-    end
-  }
-)
-Battle::AbilityEffects::OnSwitchIn.add(:FLOWERVEIL,
-  proc { |ability, battler, battle, switch_in|
-    if battle.field.field_effects == :Garden
-      battle.pbShowAbilitySplash(battler)
-      battle.pbDisplay(_INTL("{1}'s Flower Veil was activated by the field!", battler.pbThis(true)))
-      battle.pbHideAbilitySplash(battler)
-    end
-  }
-)
-Battle::AbilityEffects::StatusImmunity.add(:FLOWERVEIL,
-  proc { |ability, battler, status|
-    next true if battler.pbHasType?(:GRASS)
-    next true if battler.affectedByGarden?
-  }
-)
-Battle::AbilityEffects::StatusImmunity.add(:LEAFGUARD,
-  proc { |ability, battler, status|
-    next true if [:Sun, :HarshSun].include?(battler.effectiveWeather)
-    next true if [:Swamp,:Garden].include?(battler.effectiveField)
-  }
-)
-Battle::AbilityEffects::OnSwitchIn.add(:SAPSIPPER,
-  proc { |ability, battler, battle, switch_in|
-    if battle.field.field_effects == :Garden
-      battle.pbShowAbilitySplash(battler)
-      battle.pbDisplay(_INTL("The garden activated {1}'s Sap Sipper!", battler.pbThis(true)))
-      battler.pbRaiseStatStageByAbility(:ATTACK, 1, battler)
-      battle.pbHideAbilitySplash(battler)
-    end
-  }
-)
-Battle::AbilityEffects::EndOfRoundWeather.add(:DRYSKIN,
-  proc { |ability, weather, battler, battle|
-    case weather
-    when :Sun, :HarshSun
-      battle.pbShowAbilitySplash(battler)
-      battle.scene.pbDamageAnimation(battler)
-      battler.pbReduceHP(battler.totalhp / 8, false)
-      battle.pbDisplay(_INTL("{1} was hurt by the sunlight!", battler.pbThis))
-      battle.pbHideAbilitySplash(battler)
-      battler.pbItemHPHealCheck
-    when :Rain, :HeavyRain
-      next if !battler.canHeal?
-      battle.pbShowAbilitySplash(battler)
-      battler.pbRecoverHP(battler.totalhp / 8)
-      if Battle::Scene::USE_ABILITY_SPLASH
-        battle.pbDisplay(_INTL("{1}'s HP was restored.", battler.pbThis))
-      else
-        battle.pbDisplay(_INTL("{1}'s {2} restored its HP.", battler.pbThis, battler.abilityName))
-      end
-      battle.pbHideAbilitySplash(battler)
-    end
-    case battle.field.field_effects
-    when :Lava, :Fire
-      battle.pbShowAbilitySplash(battler)
-      battle.scene.pbDamageAnimation(battler)
-      battler.pbReduceHP(battler.totalhp / 8, false)
-      battle.pbDisplay(_INTL("{1} was damaged by the heat!", battler.pbThis))
-      battle.pbHideAbilitySplash(battler)
-      battler.pbItemHPHealCheck
-    when :Swamp
-      next if !battler.canHeal?
-      battle.pbShowAbilitySplash(battler)
-      battler.pbRecoverHP(battler.totalhp / 8)
-      battle.pbDisplay(_INTL("{1}'s HP was restored.", battler.pbThis))
-      battle.pbHideAbilitySplash(battler)
-    end
-  }
-)
-Battle::AbilityEffects::OnSwitchIn.add(:NEUTRALIZINGGAS,
-  proc { |ability, battler, battle, switch_in|
-    battle.pbShowAbilitySplash(battler, true)
-    battle.pbHideAbilitySplash(battler)
-    battle.pbDisplay(_INTL("Neutralizing gas filled the area!"))
-    battle.allBattlers.each do |b|
-      # Slow Start - end all turn counts
-      b.effects[PBEffects::SlowStart] = 0
-      # Truant - let b move on its first turn after Neutralizing Gas disappears
-      b.effects[PBEffects::Truant] = false
-      # Gorilla Tactics - end choice lock
-      if !b.hasActiveItem?([:CHOICEBAND, :CHOICESPECS, :CHOICESCARF])
-        b.effects[PBEffects::ChoiceBand] = nil
-      end
-      # Illusion - end illusions
-      if b.effects[PBEffects::Illusion]
-        b.effects[PBEffects::Illusion] = nil
-        if !b.effects[PBEffects::Transform]
-          battle.scene.pbChangePokemon(b, b.pokemon)
-          battle.pbDisplay(_INTL("{1}'s {2} wore off!", b.pbThis, b.abilityName))
-          battle.pbSetSeen(b)
-        end
-      end
-    end
-    # Trigger items upon Unnerve being negated
-    battler.ability_id = nil   # Allows checking if Unnerve was active before
-    had_unnerve = (battle.pbCheckGlobalAbility(:UNNERVE) || battler.hasActiveItem?(:UNNERVEORB))
-    battler.ability_id = :NEUTRALIZINGGAS
-    if had_unnerve && !battle.pbCheckGlobalAbility(:UNNERVE) && !battler.hasActiveItem?(:UNNERVEORB)
-      battle.allBattlers.each { |b| b.pbItemsOnUnnerveEnding }
-    end
-  }
-)
 
 Battle::AbilityEffects::OnSwitchIn.add(:HAUNTED,
   proc { |ability,battler,battle|
@@ -1459,6 +1279,18 @@ Battle::AbilityEffects::OnSwitchIn.add(:GAIAFORCE,
 Battle::AbilityEffects::DamageCalcFromUser.add(:FORESTSSECRETS,
   proc { |ability, user, target, move, mults, baseDmg, type|
     mults[:attack_multiplier] *= 1.5 if move.specialMove?
+  }
+)
+
+Battle::AbilityEffects::DamageCalcFromUser.add(:HORSEPOWER,
+  proc { |ability, user, target, move, mults, baseDmg, type|
+    mults[:attack_multiplier] *= 1.5 if move.physicalMove?
+  }
+)
+
+Battle::AbilityEffects::DamageCalcFromUser.add(:PIKAPOW,
+  proc { |ability, user, target, move, mults, baseDmg, type|
+    mults[:attack_multiplier] *= 2
   }
 )
 
@@ -1576,18 +1408,6 @@ Battle::AbilityEffects::OnSwitchOut.add(:FAIRYBUBBLE,
   }
 )
 
-Battle::AbilityEffects::MoveImmunity.add(:WATERCOMPACTION,
-  proc { |ability, user, target, move, type, battle, show_message|
-    next target.pbMoveImmunityStatRaisingAbility(user, move, type, :WATER, :SPECIAL_DEFENSE, 2, show_message)
-  }
-)
-
-Battle::AbilityEffects::MoveImmunity.add(:STEAMENGINE,
-  proc { |ability, user, target, move, type, battle, show_message|
-    next (target.pbMoveImmunityStatRaisingAbility(user, move, type, :WATER, :SPEED, 6, show_message) || target.pbMoveImmunityStatRaisingAbility(user, move, type, :FIRE, :SPEED, 6, show_message))
-  }
-)
-
 Battle::AbilityEffects::OnSwitchIn.add(:GRASSYSURGE,
   proc { |ability, battler, battle, switch_in|
     next if battle.field.terrain == :Grassy
@@ -1597,3 +1417,36 @@ Battle::AbilityEffects::OnSwitchIn.add(:GRASSYSURGE,
     # NOTE: The ability splash is hidden again in def pbStartTerrain.
   }
 )
+
+Battle::AbilityEffects::OnSwitchIn.add(:BADDREAMS,
+  proc { |ability, battler, battle, switch_in|
+    oDef = oSpDef = 0
+    battle.allOtherSideBattlers(battler.index).each do |b|
+      b.effects[PBEffects::Yawn] = 2
+      battle.pbDisplay(INTL("{1} became drowsy!",b.pbThis))
+      b.pbSleepDuration(2)
+      b.effects[PBEffects::Nightmare] = true
+    end
+  }
+)
+
+Battle::AbilityEffects::MoveImmunity.add(:PIKAPOW,
+  proc { |ability, user, target, move, type, battle, show_message|
+    next false if type!=:GROUND
+    if show_message
+      battle.pbShowAbilitySplash(target)
+      if Battle::Scene::USE_ABILITY_SPLASH
+        battle.pbDisplay(_INTL("It doesn't affect {1}...", target.pbThis(true)))
+      else
+        battle.pbDisplay(_INTL("{1}'s {2} made {3} ineffective!",
+           target.pbThis, target.abilityName, move.name))
+      end
+      battle.pbHideAbilitySplash(target)
+    end
+    next true
+  }
+)
+
+Battle::AbilityEffects::MoveImmunity.copy(:PIKAPOW,:AMPEDUP)
+
+Battle::AbilityEffects::StatusImmunity.copy(:PURIFYINGSALT,:CLEANWATER)

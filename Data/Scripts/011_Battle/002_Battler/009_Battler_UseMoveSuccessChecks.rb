@@ -119,6 +119,7 @@ class Battle::Battler
       end
     end
     disobedient |= !pbHyperModeObedience(choice[2])
+    disobedient = rand(100) >= 95
     return true if !disobedient
     # Pokémon is disobedient; make it do something else
     return pbDisobey(choice, badge_level)

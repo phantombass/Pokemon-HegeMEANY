@@ -542,9 +542,9 @@ GameData::Role.register({
 })
 
 GameData::Role.register({
-  :id           => :PIVOT,
+  :id           => :DEFENSIVEPIVOT,
   :id_number    => 13,
-  :name         => _INTL("Pivot")
+  :name         => _INTL("Defensive Pivot")
 })
 
 GameData::Role.register({
@@ -575,4 +575,16 @@ GameData::Role.register({
   :id           => :SKILLSWAPALLY,
   :id_number    => 18,
   :name         => _INTL("Skill Swap Ally")
+})
+
+GameData::Role.register({
+  :id           => :OFFENSIVEPIVOT,
+  :id_number    => 19,
+  :name         => _INTL("Offensive Pivot")
+})
+
+GameData::Role.register({
+  :id           => :TRICKROOMSETTER,
+  :id_number    => 20,
+  :name         => _INTL("Trick Room Setter")
 })

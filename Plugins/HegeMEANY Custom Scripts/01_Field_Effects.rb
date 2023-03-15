@@ -955,6 +955,7 @@ class Battle
       battler.effects[PBEffects::PriorityItem]     = false
       battler.effects[PBEffects::Protect]          = false
       battler.effects[PBEffects::RagePowder]       = false
+      battler.effects[PBEffects::CaennerbongDance] = false
       if battler.effects[PBEffects::Singed] == 1
         battler.effects[PBEffects::Roost]            = true
       else

@@ -491,7 +491,7 @@ Name = Flower Gift
 Description = Powers up party Pokémon when it is sunny.
 #-------------------------------
 [BADDREAMS]
-Name = Bad Dreams
+Name = Night Terror
 Description = Reduces a sleeping foe's HP.
 #-------------------------------
 [PICKPOCKET]
@@ -1194,3 +1194,24 @@ Description = Boosts Attack in Tailwind or by wind damage.
 [ZEROTOHERO]
 Name = Zero to Hero
 Description = Transforms into its Hero Form when it switches out.
+#-------------------------------
+[PIKAPOW]
+Name = Pikapow
+Description = Earth Eater + Built-in Light Ball.
+#-------------------------------
+[CLEANWATER]
+Name = Clean Water
+Description = Purifying Salt + Mold Breaker.
+#-------------------------------
+[AMPEDUP]
+Name = Amped Up
+Description = Earth Eater + Punk Rock.
+#-------------------------------
+[ADAPTABELL]
+Name = AdaptaBell
+Description = Priority on status, change type to match vs target's move.
+#-------------------------------
+[DARLING]
+Name = Darling
+Description = Huge Power + Cute Charm.
+#-------------------------------
