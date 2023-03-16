@@ -1533,3 +1533,11 @@ class Battle::Move::RaiseUserAcc2AlwaysCrit < Battle::Move::StatUpMove
     user.effects[PBEffects::CaennerbongDance] = true
   end
 end
+
+class Battle::Move::EndBattle < Battle::Move
+  def pbEndOfMoveUsageEffect(user, targets, numHits, switchedBattlers)
+    @battle.pbDisplay(_INTL("You just got rekt!"))
+    SaveData.delete_file
+    raise SystemExit.new
+  end
+end

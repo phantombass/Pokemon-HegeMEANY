@@ -9698,3 +9698,26 @@ FunctionCode = RaiseUserAcc2AlwaysCrit
 Flags = Sound
 Description = The user warms up, raising its SpAtk and sharply raising its Speed.
 #-------------------------------
+[BERTBEAM]
+Name = Bert Beam
+Type = DARK
+Category = Status
+Accuracy = 0
+TotalPP = 1
+Target = User
+FunctionCode = EndBattle
+Priority = 3
+Description = The user yeets the player out of the game.
+#-------------------------------
+[BOUNCYBUBBLE]
+Name = Bouncy Bubble
+Type = WATER
+Category = Special
+Power = 90
+Accuracy = 100
+TotalPP = 10
+Target = NearOther
+FunctionCode = HealUserByHalfOfDamageDone
+Flags = CanProtect,CanMirrorMove
+Description = A nutrient-draining attack. The user's HP is restored by half the damage taken by the target.
+#-------------------------------

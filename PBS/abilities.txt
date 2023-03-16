@@ -1215,3 +1215,15 @@ Description = Priority on status, change type to match vs target's move.
 Name = Darling
 Description = Huge Power + Cute Charm.
 #-------------------------------
+[SCALER]
+Name = Scaler
+Description = Immune to Rock, Stealth Rocks and Sandstorm.
+#-------------------------------
+[HORSEPOWER]
+Name = Horse Power
+Description = Boosts Physical moves.
+#-------------------------------
+[HAUNTED]
+Name = Haunted
+Description = Ghost as 3rd type.
+#-------------------------------

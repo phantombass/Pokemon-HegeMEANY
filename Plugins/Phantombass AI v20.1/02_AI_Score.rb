@@ -1796,3 +1796,19 @@ PBAI::ScoreHandler.add("UserFaintsLowerTargetAtkSpAtk2") do |score, ai, user, ta
   end
   next score
 end
+
+#Trick Room
+PBAI::ScoreHandler.add("StartSlowerBattlersActFirst") do |score, ai, user, target, move|
+  if ai.battle.field.effects[PBEffects::TrickRoom] == 0 && target.faster_than?(user)
+    score += 100
+    PBAI.log("+ 100 for setting Trick Room to outspeed target")
+    if user.role.id == :TRICKROOMSETTER
+      score += 100
+      PBAI.log("+ 100 for being a #{user.role.name}")
+    end
+  else
+    score -= 1000
+    PBAI.log("- 1000 to not undo Trick Room") if ai.battle.field.effects[PBEffects::TrickRoom] != 0
+  end
+  next score
+end

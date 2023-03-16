@@ -116,18 +116,6 @@ def read_run
   }
 end
 
-def calc_money
-  run = read_run
-  if run > 4
-    money = (run-4)/4
-  else
-    money = 0
-  end
-  ret = 100000 * money
-  return ret
-end
-
-
 def pbStartOver(gameover = true)
   if pbInBugContest?
     pbBugContestStartOver

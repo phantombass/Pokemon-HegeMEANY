@@ -61,6 +61,61 @@ class Randomizer
 	  $game_variables[64] = starter_names[2]
 	  return starters
 	end
+
+	def self.randomizeTrainers
+		list = [:HIKER,:FISHERMAN,:LASS,:YOUNGSTER,:LADY,:BUGCATCHER,:GENTLEMAN,:RUINMANIAC,:PSYCHIC,:ENGINEER,:SCIENTIST,:SUPERNERD,:BURGLAR,
+			:BLACKBELT,:CRUSHGIRL,:TUBER_F,:BIRDKEEPER,:TAMER,:CHANNELER]
+		boss = ["Allen","Jacub","Ash","Hestia","Ducky","Phantombass"]
+		chosen = []
+		vers = []
+		pick = 0
+		loop do
+			c = rand(list.length)
+			choice = list[c]
+			next if chosen.include?(choice)
+			chosen.push(choice)
+			pick += 1
+			break if pick == 14
+		end
+		$game_switches[117] = true if rand(100) > 90
+		for i in 0...chosen.length
+			l = 0
+			loop do
+				num = rand(5)
+				next if vers.include?(num)
+				vers[i].push(num)
+				l += 1
+				break if l == 3
+			end
+		end
+		$game_variables[80] = chosen
+		$game_variables[81] = boss[rand(boss.length)]
+		$game_variables[82] = vers
+		$game_switches[200] = true if ["Ash","Hestia"].include?($game_variables[81])
+	end
+end
+
+def getTrainerType
+	trainer_types = $game_variables[80]
+	prev = $game_variables[85]
+	ret = trainer_types[prev+1]
+	$game_variables[85] += 1
+	if $game_variables[85] > trainer_types.length-1
+		$game_variables[86] += 1
+		$game_variables[85] = -1
+	end
+	return ret
+end
+
+def trainerForm(trainer_type,num)
+	form = $game_variables[82]
+	tr = $game_variables[80]
+	idx = 0
+	for i in tr
+		break if i == trainer_type
+		idx += 1
+	end
+	return form[idx][num]
 end
 
 def randomizeSpecies(species, static = false, gift = false)

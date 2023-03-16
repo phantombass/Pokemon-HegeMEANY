@@ -2729,3 +2729,30 @@ Weight = 0.1
 Pokedex = This Pokémon was born from passion that seeped into a coin. It wanders, apparently seeking to return to the treasure chest it once inhabited.
 CatchRate = 0
 Evolutions = GHOLDENGO,None,
+#-------------------------------
+[BELLOSSOM,1]
+FormName = Persephone
+Types = GRASS,FAIRY
+BaseStats = 75,80,95,50,90,100
+GenderRatio = Female50Percent
+GrowthRate = Parabolic
+BaseExp = 245
+EVs = SPECIAL_DEFENSE,3
+CatchRate = 45
+Happiness = 50
+Abilities = CHLOROPHYLL
+HiddenAbilities = HEALER
+Moves = 0,PETALBLIZZARD,1,PETALBLIZZARD,1,QUIVERDANCE,1,MEGADRAIN,1,POISONPOWDER,1,STUNSPORE,1,SLEEPPOWDER,1,GIGADRAIN,1,TOXIC,1,MOONBLAST,1,GRASSYTERRAIN,1,MOONLIGHT,1,PETALDANCE,1,ABSORB,1,GROWTH,1,ACID,1,SWEETSCENT
+TutorMoves = ATTRACT,BATONPASS,BULLETSEED,CHARM,CUT,DAZZLINGGLEAM,DOUBLETEAM,DRAINPUNCH,ENDURE,ENERGYBALL,FACADE,FLASH,FLING,GIGADRAIN,GIGAIMPACT,GRASSKNOT,GRASSYGLIDE,GRASSYTERRAIN,HELPINGHAND,HIDDENPOWER,HYPERBEAM,LEAFBLADE,LEAFSTORM,MAGICALLEAF,PLAYROUGH,PROTECT,REST,ROUND,SAFEGUARD,SEEDBOMB,SLEEPTALK,SLUDGEBOMB,SNORE,SOLARBEAM,SUBSTITUTE,SUNNYDAY,SWAGGER,SWORDSDANCE,TOXIC,UPROAR,VENOSHOCK
+EggGroups = Grass
+HatchSteps = 5120
+Height = 0.4
+Weight = 5.8
+Color = Green
+Shape = Bipedal
+Habitat = Grassland
+Category = Flower
+Pokedex = Its flower petals deepen in color through exposure to sunlight. When cloudy weather persists, it does a dance that is thought to be a sun-summoning ritual.
+Generation = 2
+WildItemUncommon = ABSORBBULB
+#-------------------------------
