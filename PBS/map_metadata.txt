@@ -395,3 +395,19 @@ Name = Tiall Region
 Outdoor = true
 MapPosition = 1,13,16
 BattleBack = city
+#-------------------------------
+[080]   # Floor 1
+Name = Floor 1
+Dungeon = true
+#-------------------------------
+[083]   # Floor 3
+Name = Floor 3
+Dungeon = true
+#-------------------------------
+[085]   # Floor 5
+Name = Floor 5
+Dungeon = true
+#-------------------------------
+[086]   # Floor 6
+Name = Floor 6
+Dungeon = true

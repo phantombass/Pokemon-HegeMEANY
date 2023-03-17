@@ -447,16 +447,6 @@ MenuHandlers.add(:options_menu, :battle_animations, {
   "set_proc"    => proc { |value, _scene| $PokemonSystem.battlescene = value }
 })
 
-MenuHandlers.add(:options_menu, :battle_style, {
-  "name"        => _INTL("Battle Style"),
-  "order"       => 50,
-  "type"        => EnumOption,
-  "parameters"  => [_INTL("Switch"), _INTL("Set")],
-  "description" => _INTL("Choose whether you can switch Pokémon when an opponent's Pokémon faints."),
-  "get_proc"    => proc { next $PokemonSystem.battlestyle },
-  "set_proc"    => proc { |value, _scene| $PokemonSystem.battlestyle = value }
-})
-
 MenuHandlers.add(:options_menu, :movement_style, {
   "name"        => _INTL("Default Movement"),
   "order"       => 60,

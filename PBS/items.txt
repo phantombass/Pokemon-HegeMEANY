@@ -7262,3 +7262,22 @@ NamePlural = Fairy Tera Shards
 Pocket = 1
 Price = 2000
 Description = On rare occasions, these shards form when a Tera Pokémon falls in battle and its Tera Jewel shatters.
+#-------------------------------
+[IVMAXSTONE]
+Name = IV Max Stone
+NamePlural = IV Max Stones
+Pocket = 2
+Price = 10000
+FieldUse = OnPokemon
+Flags = Fling_30
+Description = Max an IV.
+#-------------------------------
+[IVMINSTONE]
+Name = IV Min Stone
+NamePlural = IV Min Stones
+Pocket = 2
+Price = 10000
+FieldUse = OnPokemon
+Flags = Fling_30
+Description = Zero an IV.
+#-------------------------------

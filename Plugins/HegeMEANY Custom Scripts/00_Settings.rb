@@ -25,6 +25,10 @@ class MapLog
 
   def registered?(mapid)
     return false if @list.nil?
+    if @list == 0
+      @list = []
+      return false
+    end
     return true if @list.include?(mapid)
     return false
   end
@@ -90,6 +94,7 @@ end
 def write_run
   File.open("run.txt", "wb") { |f|
     floor = [80,82,83,84,85,86,87,88]
+	idx = 0
     for i in floor
       idx += 1
       break if $game_map.map_id == i

@@ -1764,7 +1764,7 @@ class Battle::Move::BadPoisonTarget
   attr_reader :toxic
 end
 
-class PokeBattle_PoisonMove
+class Battle::Move::PoisonMove
   attr_reader :toxic
 end
 

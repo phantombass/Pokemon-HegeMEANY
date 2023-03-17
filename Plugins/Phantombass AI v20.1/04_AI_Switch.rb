@@ -195,7 +195,7 @@ end
 
 PBAI::SwitchHandler.add_type(:WATER) do |score,ai,battler,proj,target|
 	if $switch_flags[:water] == true
-	  if battler.hasActiveAbility?([:WATERABSORB,:DRYSKIN,:STORMDRAIN,:STEAMENGINE,:WATERCOMPACTION]) || battler.hasActiveItem?(:WATERABSORBORB)
+	  if battler.hasActiveAbility?([:WATERABSORB,:DRYSKIN,:STORMDRAIN]) || battler.hasActiveItem?(:WATERABSORBORB)
 	    score += 200
 	    PBAI.log("+ 200")
 	  end
@@ -261,19 +261,6 @@ PBAI::SwitchHandler.add_type(:DARK) do |score,ai,battler,proj,target|
 	next score
 end
 
-PBAI::SwitchHandler.add_type(:COSMIC) do |score,ai,battler,proj,target|
-	if $switch_flags[:cosmic] == true
-	  if battler.hasActiveAbility?(:DIMENSIONBLOCK) || battler.hasActiveItem?(:DIMENSIONBLOCKORB)
-	    score += 200
-	    PBAI.log("+ 200")
-	  end
-	  if battler.own_side.effects[PBEffects::CometShards] && battler.pbHasType?(:COSMIC)
-	  	score += 200
-	  	PBAI.log("+ 200")
-	  end
-	end
-	next score
-end
 
 PBAI::SwitchHandler.add do |score,ai,battler,proj,target|
 	if $switch_flags[:poison] == true && battler.pbHasType?(:POISON)
@@ -562,10 +549,6 @@ PBAI::SwitchHandler.add do |score,ai,battler,proj,target|
   hazard_score = (rocks*12.5) + (spikes*12.5) + (tspikes*6.25)
   #Switch in to absorb hazards
   if tspikes > 0 && (battler.pbHasType?(:POISON) && !battler.airborne?) || battler.hasActiveAbility?(:GALEFORCE)
-  	score += 400
-  	PBAI.log("+ 400")
-  end
-  if comet > 0 && (battler.pbHasType?(:COSMIC) && !battler.airborne? && !battler.hasActiveAbility?(:MAGICGUARD)) || battler.hasActiveAbility?(:GALEFORCE)
   	score += 400
   	PBAI.log("+ 400")
   end

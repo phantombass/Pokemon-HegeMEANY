@@ -133,8 +133,9 @@ GameData::Environment.register({
   :battle_base => "grass_night"
 })
 module PBEffects
-  EchoChamber = 113
-  Singed = 114
+  CaennerbongDance = 117
+  EchoChamber = 118
+  Singed = 119
 end
 
 class Game_Temp
@@ -1102,6 +1103,7 @@ class Battle
 #        pkmn.item = $olditems[i]
 #      else
         pkmn.item = @initialItems[0][i]
+        $player.party.delete_at(pkmn.index) if pkmn.fainted?
  #     end
     end
     return @decision
