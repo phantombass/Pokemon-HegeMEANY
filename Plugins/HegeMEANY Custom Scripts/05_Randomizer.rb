@@ -63,8 +63,8 @@ class Randomizer
 	end
 
 	def self.randomizeTrainers
-        list = [:HIKER,:FISHERMAN,:LASS,:YOUNGSTER,:LADY,:BUGCATCHER,:GENTLEMAN,:RUINMANIAC,:PSYCHIC,:ENGINEER,:SCIENTIST,:SUPERNERD,:BURGLAR,
-            :BLACKBELT,:CRUSHGIRL,:TUBER_F,:BIRDKEEPER,:TAMER,:CHANNELER]
+        list = [:HIKER,:FISHERMAN,:LASS,:YOUNGSTER,:LADY,:BUGCATCHER,:GENTLEMAN,:RUINMANIAC,:PSYCHIC_M,:ENGINEER,:SCIENTIST,:SUPERNERD,:BURGLAR,
+            :BLACKBELT,:CRUSHGIRL,:TUBER_F,:BIRDKEEPER,:TAMER,:CHANELLER]
         boss = ["Allen","Jacub","Ash","Hestia","Ducky","Phantombass"]
         chosen = []
         ver = []

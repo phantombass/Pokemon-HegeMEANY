@@ -824,7 +824,7 @@ Description = An item to be held by a Pokémon. It enables the holder to flee fr
 Name = Lucky Egg
 NamePlural = Lucky Eggs
 Pocket = 1
-Price = 10000
+Price = 35000
 Flags = Fling_30
 Description = An item to be held by a Pokémon. It is an egg filled with happiness that earns extra Exp. Points in battle.
 #-------------------------------

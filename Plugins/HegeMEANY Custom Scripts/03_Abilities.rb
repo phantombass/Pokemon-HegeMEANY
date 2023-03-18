@@ -325,28 +325,6 @@ class Battle::Battler
     return false if !move.pbCanChooseMove?(self, commandPhase, showMessages)
     return true
   end
-  def pbRecoverHP(amt, anim = true, anyAnim = true)
-    if amt == true
-      anim = false
-      anyAnim = false
-      amt = 0
-    end
-    amt = amt.round
-    amt = @totalhp - @hp if amt > @totalhp - @hp
-    if @effects[PBEffects::Singed] == 1
-      amt = 0
-    else
-      amt = 1 if amt < 1 && @hp < @totalhp
-    end
-    oldHP = @hp
-    self.hp += amt
-    PBDebug.log("[HP change] #{pbThis} gained #{amt} HP (#{oldHP}=>#{@hp})") if amt > 0
-    raise _INTL("HP less than 0") if @hp < 0
-    raise _INTL("HP greater than total HP") if @hp > @totalhp
-    @battle.scene.pbHPChanged(self, oldHP, anim) if anyAnim && amt > 0
-    @droppedBelowHalfHP = false if @hp >= @totalhp / 2
-    return amt
-  end
   def pbTypes(withType3 = false)
     ret = @types.uniq
     # Burn Up erases the Fire-type.

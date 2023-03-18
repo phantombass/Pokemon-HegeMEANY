@@ -522,10 +522,6 @@ end
 
 #Health Related
 PBAI::SwitchHandler.add do |score,ai,battler,proj,target|
-	if battler.hp <= battler.totalhp/4
-		score -= 100
-		PBAI.log("- 100")
-	end
 	if ai.battle.positions[battler.index].effects[PBEffects::Wish] > 0 && battler.hp <= battler.totalhp/3
 		score += 400
 		PBAI.log("+ 400")

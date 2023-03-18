@@ -1234,69 +1234,6 @@ class Battle::Move::SleepTargetNextTurn < Battle::Move
   end
 end
 
-class Battle::Move::HealUserHalfOfTotalHPLoseFlyingTypeThisTurn < Battle::Move::HealingMove
-  def pbHealAmount(user)
-    if user.effectiveField == :Lava && !user.pbHasType?(:FIRE) && !user.pbHasType?(:DRAGON) && !user.pbHasType?(:WATER) && !user.pbHasType?(:GROUND) && user.effects[PBEffects::Singed] == false
-      @battle.pbDisplay(_INTL("{1} roosted in the lava and singed their wings!",user.name))
-      user.effects[PBEffects::Singed] = 1
-      user.pbBurn
-      return pbMoveFailed?(user,nil)
-    else
-      if user.effects[PBEffects::Singed] == false
-        return (user.totalhp / 2.0).round
-      end
-    end
-  end
-
-  def pbMoveFailed?(user, targets)
-    if user.hp == user.totalhp
-      @battle.pbDisplay(_INTL("{1}'s HP is full!", user.pbThis))
-      return true
-    end
-    if user.effects[PBEffects::Singed] == 1
-      @battle.pbDisplay(_INTL("{1}'s wings are singed and it cannot roost!", user.pbThis))
-      return true
-    end
-    return false
-  end
-
-  def pbEffectGeneral(user)
-    super
-    user.effects[PBEffects::Roost] = true
-    if user.effectiveField == :Swamp && !user.pbHasType?([:POISON,:WATER,:BUG])
-      @battle.pbDisplay(_INTL("{1} roosted in the swamp and got covered in muck!",user.name))
-      user.pbLowerStatStage(:SPEED,1,user) if user.pbCanLowerStatStage?(:SPEED)
-    end
-  end
-end
-
-class Battle::Move::HealingMove < Battle::Move
-  def healingMove?;       return true; end
-  def pbHealAmount(user); return 1;    end
-  def canSnatch?;         return true; end
-
-  def pbMoveFailed?(user, targets)
-    if user.hp == user.totalhp
-      @battle.pbDisplay(_INTL("{1}'s HP is full!", user.pbThis))
-      return true
-    end
-    return false
-  end
-
-  def pbEffectGeneral(user)
-    amt = pbHealAmount(user)
-    user.pbRecoverHP(amt)
-    @battle.pbDisplay(_INTL("{1}'s HP was restored.", user.pbThis)) if user.effects[PBEffects::Singed] == 0
-  end
-end
-
-class Battle::Move::HealUserDependingOnSandstorm < Battle::Move::HealingMove
-  def pbHealAmount(user)
-    return (user.totalhp * 2 / 3.0).round if (user.effectiveWeather == :Sandstorm || user.effectiveField == :Desert)
-    return (user.totalhp / 2.0).round
-  end
-end
-
 class Battle::Move::UserTargetSwapItems < Battle::Move
   def pbFailsAgainstTarget?(user, target, show_message)
     if !user.item && !target.item

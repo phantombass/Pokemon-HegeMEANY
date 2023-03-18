@@ -580,24 +580,26 @@ class PBAI
         choice = scores[idx]
         move = @battler.moves[choice[0]]
         target = $target[$target_ind%2]
-        if ["CureTargetStatusHealUserHalfOfTotalHP", "HealUserHalfOfTotalHP", "HealUserHalfOfTotalHPLoseFlyingTypeThisTurn", "HealUserPositionNextTurn", "HealUserDependingOnWeather", "HealUserFullyAndFallAsleep"].include?(move.function)
-          self.flags[:will_be_healed] = true
-        elsif move.function == "HealTargetHalfOfTotalHP"
-          target.flags[:will_be_healed] = true
-        elsif move.function == "StartPreventCriticalHitsAgainstUserSide"
-          @side.flags[:will_luckychant] = true
-        elsif move.function == "StartWeakenPhysicalDamageAgainstUserSide"
-          @side.flags[:will_reflect] = true
-        elsif move.function == "StartWeakenSpecialDamageAgainstUserSide"
-          @side.flags[:will_lightscreen] = true
-        elsif move.function == "ResetAllBattlersStatStages"
-          @side.flags[:will_haze] = true
-        elsif move.function == "StartWeakenDamageAgainstUserSideIfHail"
-          @side.flags[:will_auroraveil] = true
-        elsif move.function == "DisableTargetStatusMoves"
-          target.flags[:will_be_taunted] = true
-        elsif move.function == "DisableTargetLastMoveUsed"
-          target.flags[:will_be_disabled] = true
+        if @battle.pbSideSize(0) == 2
+          if ["CureTargetStatusHealUserHalfOfTotalHP", "HealUserHalfOfTotalHP", "HealUserHalfOfTotalHPLoseFlyingTypeThisTurn", "HealUserPositionNextTurn", "HealUserDependingOnWeather", "HealUserFullyAndFallAsleep"].include?(move.function)
+            self.flags[:will_be_healed] = true
+          elsif move.function == "HealTargetHalfOfTotalHP"
+            target.flags[:will_be_healed] = true
+          elsif move.function == "StartPreventCriticalHitsAgainstUserSide"
+            @side.flags[:will_luckychant] = true
+          elsif move.function == "StartWeakenPhysicalDamageAgainstUserSide"
+            @side.flags[:will_reflect] = true
+          elsif move.function == "StartWeakenSpecialDamageAgainstUserSide"
+            @side.flags[:will_lightscreen] = true
+          elsif move.function == "ResetAllBattlersStatStages"
+            @side.flags[:will_haze] = true
+          elsif move.function == "StartWeakenDamageAgainstUserSideIfHail"
+            @side.flags[:will_auroraveil] = true
+          elsif move.function == "DisableTargetStatusMoves"
+            target.flags[:will_be_taunted] = true
+          elsif move.function == "DisableTargetLastMoveUsed"
+            target.flags[:will_be_disabled] = true
+          end
         end
         return [choice[0], choice[2]]
       end

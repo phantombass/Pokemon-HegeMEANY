@@ -1103,7 +1103,7 @@ class Battle
 #        pkmn.item = $olditems[i]
 #      else
         pkmn.item = @initialItems[0][i]
-        $player.party.delete_at(pkmn.index) if pkmn.fainted?
+        $player.party.delete_at(i) if pkmn.fainted?
  #     end
     end
     return @decision

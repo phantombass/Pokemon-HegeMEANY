@@ -807,10 +807,7 @@ PBAI::ScoreHandler.add("CureTargetStatusHealUserHalfOfTotalHP") do |score, ai, u
     # At full hp, factor is 0 (thus not encouraging this move)
     # At half hp, factor is 0.5 (thus slightly encouraging this move)
     # At 1 hp, factor is about 1.0 (thus encouraging this move)
-    if user.flags[:will_be_healed] && ai.battle.pbSideSize(0) == 2
-      score -= 30
-      PBAI.log("- 30 for the user will already be healed by something")
-    elsif factor != 0
+    if factor != 0
       if user.is_healing_pointless?(0.5)
         score -= 10
         PBAI.log("- 10 for we will take more damage than we can heal if the target repeats their move")
@@ -845,10 +842,7 @@ end
 # Rest
 PBAI::ScoreHandler.add("HealUserFullyAndFallAsleep") do |score, ai, user, target, move|
   factor = 1 - user.hp / user.totalhp.to_f
-  if user.flags[:will_be_healed] && ai.battle.pbSideSize(0) == 2
-    score -= 30
-    PBAI.log("- 30 for the user will already be healed by something")
-  elsif factor != 0
+  if factor != 0
     # Not at full hp
     if user.can_sleep?(user, move, true)
       add = (factor * 100).round
@@ -1063,9 +1057,6 @@ PBAI::ScoreHandler.add("DisableTargetLastMoveUsed") do |score, ai, user, target,
   if target.effects[PBEffects::Disable] > 1
     score -= 30
     PBAI.log("- 30 for the target is already disabled")
-  elsif target.flags[:will_be_disabled] == true && ai.battle.pbSideSize(0) == 2
-    score -= 30
-    PBAI.log("- 30 for the target is being disabled by another battler")
   else
     # Get previous damage done by the target
     prevDmg = target.get_damage_by_user(user)
@@ -1259,11 +1250,7 @@ PBAI::ScoreHandler.add("HealUserHalfOfTotalHP", "HealUserHalfOfTotalHPLoseFlying
   factor = 1 - user.hp / user.totalhp.to_f
   # At full hp, factor is 0 (thus not encouraging this move)
   # At half hp, factor is 0.5 (thus slightly encouraging this move)
-  # At 1 hp, factor is about 1.0 (thus encouraging this move)
-  if user.flags[:will_be_healed] && ai.battle.pbSideSize(0) == 2
-    score -= 30
-    PBAI.log("- 30 for the user will already be healed by something")
-  elsif factor != 0
+  if factor != 0
     if user.is_healing_pointless?(0.67)
       score -= 10
       PBAI.log("- 10 for we will take more damage than we can heal if the target repeats their move")
@@ -1303,10 +1290,7 @@ PBAI::ScoreHandler.add("HealUserDependingOnWeather") do |score, ai, user, target
   # At full hp, factor is 0 (thus not encouraging this move)
   # At half hp, factor is 0.5 (thus slightly encouraging this move)
   # At 1 hp, factor is about 1.0 (thus encouraging this move)
-  if user.flags[:will_be_healed] && ai.battle.pbSideSize(0) == 2
-    score -= 30
-    PBAI.log("- 30 for the user will already be healed by something")
-  elsif factor != 0
+  if factor != 0
     if user.is_healing_pointless?(heal_factor)
       score -= 10
       PBAI.log("- 10 for we will take more damage than we can heal if the target repeats their move")
@@ -1331,9 +1315,6 @@ PBAI::ScoreHandler.add("StartWeakenPhysicalDamageAgainstUserSide") do |score, ai
   if user.side.effects[PBEffects::Reflect] > 0
     score -= 30
     PBAI.log("- 30 for reflect is already active")
-  elsif user.side.flags[:will_reflect] && ai.battle.pbSideSize(0) == 2
-    score -= 30
-    PBAI.log("- 30 for another battler will already use reflect")
   else
     enemies = target.side.battlers.select { |proj| !proj.fainted? }.size
     physenemies = target.side.battlers.select { |proj| proj.is_physical_attacker? }.size
@@ -1354,9 +1335,6 @@ PBAI::ScoreHandler.add("StartWeakenSpecialDamageAgainstUserSide") do |score, ai,
   if user.side.effects[PBEffects::LightScreen] > 0
     score -= 30
     PBAI.log("- 30 for light screen is already active")
-  elsif user.side.flags[:will_lightscreen] && ai.battle.pbSideSize(0) == 2
-    score -= 30
-    PBAI.log("- 30 for another battler will already use light screen")
   else
     enemies = target.side.battlers.select { |proj| !proj.fainted? }.size
     specenemies = target.side.battlers.select { |proj| proj.is_special_attacker? }.size
@@ -1376,9 +1354,6 @@ PBAI::ScoreHandler.add("StartWeakenDamageAgainstUserSideIfHail") do |score, ai, 
   if user.side.effects[PBEffects::AuroraVeil] > 0
     score -= 30
     PBAI.log("- 30 for Aurora Veil is already active")
-  elsif user.side.flags[:will_auroraveil] && ai.battle.pbSideSize(0) == 2
-    score -= 30
-    PBAI.log("- 30 for another battler will already use Aurora Veil")
   elsif user.effectiveWeather != :Hail
     score -= 30
     PBAI.log("- 30 for Aurora Veil will fail without Hail active")
@@ -1397,10 +1372,7 @@ end
 
 #Taunt
 PBAI::ScoreHandler.add("DisableTargetStatusMoves") do |score, ai, user, target, move|
-  if target.flags[:will_be_taunted] && ai.battle.pbSideSize(0) == 2
-    score -= 30
-    PBAI.log("- 30 for another battler will already use Taunt on this target")
-  elsif target.effects[PBEffects::Taunt]>0
+  if target.effects[PBEffects::Taunt]>0
     score -= 30
     PBAI.log("- 30 for the target is already Taunted")
   else
@@ -1409,41 +1381,10 @@ PBAI::ScoreHandler.add("DisableTargetStatusMoves") do |score, ai, user, target, 
       weight += 25 if proj.statusMove?
     end
     score += weight
-    PBAI.log("+ #{add} to Taunt potential stall or setup")
+    PBAI.log("+ #{weight} to Taunt potential stall or setup")
     if user.role.id == :STALLBREAKER && weight > 50
       score += 30
       PBAI.log("+ 30 for being a #{user.role.name}")
-    end
-  end
-  next score
-end
-
-# Haze
-PBAI::ScoreHandler.add("ResetAllBattlersStatStages") do |score, ai, user, target, move|
-  if user.side.flags[:will_haze] && ai.battle.pbSideSize(0) == 2
-    score -= 30
-    PBAI.log("- 30 for another battler will already use haze")
-  else
-    net = 0
-    # User buffs: net goes up
-    # User debuffs: net goes down
-    # Target buffs: net goes down
-    # Target debuffs: net goes up
-    # The lower net is, the better Haze is to choose.
-    user.side.battlers.each do |proj|
-      GameData::Stat.each_battle { |s| net += proj.stages[s] }
-    end
-    target.side.battlers.each do |proj|
-      GameData::Stat.each_battle { |s| net -= proj.stages[s] }
-    end
-    # As long as the target's stat stages are more advantageous than ours (i.e. net < 0), Haze is a good choice
-    if net < 0
-      add = -net * 20
-      score += add
-      PBAI.log("+ #{add} to reset disadvantageous stat stages")
-    else
-      score -= 30
-      PBAI.log("- 30 for our stat stages are advantageous")
     end
   end
   next score
