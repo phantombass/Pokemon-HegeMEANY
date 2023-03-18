@@ -206,7 +206,7 @@ module Battle::CatchAndStoreMixin
   # Calculate how many shakes a thrown Poké Ball will make (4 = capture)
   #=============================================================================
   def pbCaptureCalc(pkmn, battler, catch_rate, ball)
-    return 4 if $DEBUG && Input.press?(Input::CTRL)
+    return 4 if $DEBUG && Input.press?(Input::CTRL) && !$NO_ACCESS
     # Get a catch rate if one wasn't provided
     catch_rate = pkmn.species_data.catch_rate if !catch_rate
     # Modify catch_rate depending on the Poké Ball's effect

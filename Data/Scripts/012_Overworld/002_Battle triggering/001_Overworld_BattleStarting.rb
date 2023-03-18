@@ -137,7 +137,7 @@ module BattleCreationHelperMethods
   # Skip battle if the player has no able Pokémon, or if holding Ctrl in Debug mode
   def skip_battle?
     return true if $player.able_pokemon_count == 0
-    return true if $DEBUG && Input.press?(Input::CTRL)
+    return true if $DEBUG && Input.press?(Input::CTRL) && !$NO_ACCESS
     return false
   end
 

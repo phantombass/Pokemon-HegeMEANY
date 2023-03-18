@@ -195,7 +195,7 @@ class Scene_Map
           $game_temp.ready_menu_calling = true
         end
       elsif Input.press?(Input::F9)
-        $game_temp.debug_calling = true if $DEBUG
+        $game_temp.debug_calling = true if $DEBUG && !$NO_ACCESS
       end
     end
     unless $game_player.moving?

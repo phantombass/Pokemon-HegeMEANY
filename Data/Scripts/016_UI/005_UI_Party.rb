@@ -1226,7 +1226,7 @@ class PokemonPartyScreen
       command_list.push(_INTL("Cancel"))
       # Add field move commands
       if !pkmn.egg?
-        insert_index = ($DEBUG) ? 2 : 1
+        insert_index = ($DEBUG && !$NO_ACCESS) ? 2 : 1
         pkmn.moves.each_with_index do |move, i|
           next if !HiddenMoveHandlers.hasHandler(move.id) &&
                   ![:MILKDRINK, :SOFTBOILED].include?(move.id)
@@ -1320,7 +1320,7 @@ MenuHandlers.add(:party_menu, :summary, {
 MenuHandlers.add(:party_menu, :debug, {
   "name"      => _INTL("Debug"),
   "order"     => 20,
-  "condition" => proc { |screen, party, party_idx| next $DEBUG },
+  "condition" => proc { |screen, party, party_idx| next $DEBUG && !$NO_ACCESS },
   "effect"    => proc { |screen, party, party_idx|
     screen.pbPokemonDebug(party[party_idx], party_idx)
   }

@@ -409,17 +409,17 @@ end
 #
 #===============================================================================
 class PokemonPartyScreen
-  include PokemonDebugMixin
+  include PokemonDebugMixin if !$NO_ACCESS
 end
 
 class PokemonStorageScreen
-  include PokemonDebugMixin
+  include PokemonDebugMixin if !$NO_ACCESS
 end
 
 class PokemonDebugPartyScreen
-  include PokemonDebugMixin
+  include PokemonDebugMixin if !$NO_ACCESS
 end
 
 class Battle
-  include Battle::DebugMixin
+  include Battle::DebugMixin if !$NO_ACCESS
 end

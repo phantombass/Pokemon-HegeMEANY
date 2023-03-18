@@ -281,7 +281,7 @@ class Game_Player < Game_Character
       return $map_factory.isPassableFromEdge?(new_x, new_y)
     end
     # If debug mode is ON and Ctrl key was pressed
-    return true if $DEBUG && Input.press?(Input::CTRL)
+    return true if $DEBUG && !$NO_ACCESS && Input.press?(Input::CTRL)
     return super
   end
 

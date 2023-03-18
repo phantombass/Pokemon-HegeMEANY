@@ -38,7 +38,7 @@ class Battle
     end
     # Fleeing from trainer battles
     if trainerBattle?
-      if $DEBUG && Input.press?(Input::CTRL)
+      if $DEBUG && Input.press?(Input::CTRL) && !$NO_ACCESS
         if pbDisplayConfirm(_INTL("Treat this battle as a win?"))
           @decision = 1
           return 1

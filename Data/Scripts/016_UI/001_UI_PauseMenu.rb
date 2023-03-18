@@ -289,7 +289,7 @@ MenuHandlers.add(:pause_menu, :options, {
 MenuHandlers.add(:pause_menu, :debug, {
   "name"      => _INTL("Debug"),
   "order"     => 80,
-  "condition" => proc { next $DEBUG },
+  "condition" => proc { next $DEBUG && !$NO_ACCESS},
   "effect"    => proc { |menu|
     pbPlayDecisionSE
     pbFadeOutIn {

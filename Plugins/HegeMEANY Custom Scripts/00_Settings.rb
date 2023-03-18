@@ -53,6 +53,8 @@ module Game
     $PokemonEncounters.setup($game_map.map_id)
     $game_map.autoplay
     $game_map.update
+    $DEBUG = true
+    $NO_ACCESS = true
   end
   def self.load(save_data)
     validate save_data => Hash
@@ -62,6 +64,8 @@ module Game
     pbAutoplayOnSave
     $map_log = MapLog.new
     $map_log.setup
+    $DEBUG = true
+    $NO_ACCESS = true
     $game_map.update
     $PokemonMap.updateMap
     $scene = Scene_Map.new

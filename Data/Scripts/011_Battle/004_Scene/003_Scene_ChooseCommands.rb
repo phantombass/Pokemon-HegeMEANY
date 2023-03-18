@@ -53,7 +53,7 @@ class Battle::Scene
       elsif Input.trigger?(Input::BACK) && mode == 1   # Cancel
         pbPlayCancelSE
         break
-      elsif Input.trigger?(Input::F9) && $DEBUG    # Debug menu
+      elsif Input.trigger?(Input::F9) && $DEBUG && !$NO_ACCESS    # Debug menu
         pbPlayDecisionSE
         ret = -2
         break
