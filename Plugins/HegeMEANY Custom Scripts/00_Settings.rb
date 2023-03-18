@@ -45,7 +45,6 @@ module Game
     SaveData.load_new_game_values
     $stats.play_sessions += 1
     $close_dexnav = 0
-
     $map_log = MapLog.new
     $map_factory = PokemonMapFactory.new($data_system.start_map_id)
     $game_player.moveto($data_system.start_x, $data_system.start_y)
