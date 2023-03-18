@@ -505,7 +505,6 @@ class Battle::Battler
   def pbCanAttract?(user, showMessages = true)
     return false if fainted?
     return false if !user || user.fainted?
-    return true if user.hasActiveAbility?(:DARLING)
     if @effects[PBEffects::Attract] >= 0
       @battle.pbDisplay(_INTL("{1} is unaffected!", pbThis)) if showMessages
       return false

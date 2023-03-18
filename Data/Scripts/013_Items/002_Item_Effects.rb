@@ -518,11 +518,6 @@ ItemHandlers::UseOnPokemon.add(:FULLRESTORE, proc { |item, qty, pkmn, scene|
   hpgain = pbItemRestoreHP(pkmn, pkmn.totalhp - pkmn.hp)
   pkmn.heal_status
   scene.pbRefresh
-  if hpgain > 0
-    scene.pbDisplay(_INTL("{1}'s HP was restored by {2} points.", pkmn.name, hpgain))
-  else
-    scene.pbDisplay(_INTL("{1} became healthy.", pkmn.name))
-  end
   next true
 })
 
@@ -535,7 +530,6 @@ ItemHandlers::UseOnPokemon.add(:REVIVE, proc { |item, qty, pkmn, scene|
   pkmn.hp = 1 if pkmn.hp <= 0
   pkmn.heal_status
   scene.pbRefresh
-  scene.pbDisplay(_INTL("{1}'s HP was restored.", pkmn.name))
   next true
 })
 
@@ -640,7 +634,6 @@ ItemHandlers::UseOnPokemon.add(:MAXELIXIR, proc { |item, qty, pkmn, scene|
     scene.pbDisplay(_INTL("It won't have any effect."))
     next false
   end
-  scene.pbDisplay(_INTL("PP was restored."))
   next true
 })
 

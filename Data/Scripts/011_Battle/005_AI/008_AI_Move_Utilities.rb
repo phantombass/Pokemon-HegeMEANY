@@ -454,9 +454,9 @@ class Battle::AI
     # Badge multipliers
     if skill >= PBTrainerAI.highSkill && @battle.internalBattle && target.pbOwnedByPlayer?
       if move.physicalMove?(type) && @battle.pbPlayer.badge_count >= Settings::NUM_BADGES_BOOST_DEFENSE
-        multipliers[:defense_multiplier] *= 1.1
+        multipliers[:defense_multiplier] *= 1.0
       elsif move.specialMove?(type) && @battle.pbPlayer.badge_count >= Settings::NUM_BADGES_BOOST_SPDEF
-        multipliers[:defense_multiplier] *= 1.1
+        multipliers[:defense_multiplier] *= 1.0
       end
     end
     # Multi-targeting attacks

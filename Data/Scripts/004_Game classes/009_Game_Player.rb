@@ -68,7 +68,7 @@ class Game_Player < Game_Character
     when :surf_fishing
       new_charset = pbGetPlayerCharset(meta.surf_fish_charset)
     when :diving, :diving_fast, :diving_jumping, :diving_stopped
-      self.move_speed = 3
+      self.move_speed = 4
       new_charset = pbGetPlayerCharset(meta.dive_charset)
     when :surfing, :surfing_fast, :surfing_jumping, :surfing_stopped
       self.move_speed = (type == :surfing_jumping) ? 3 : 4
@@ -77,13 +77,13 @@ class Game_Player < Game_Character
       self.move_speed = (type == :cycling_jumping) ? 3 : 5
       new_charset = pbGetPlayerCharset(meta.cycle_charset)
     when :running
-      self.move_speed = 4
+      self.move_speed = 6
       new_charset = pbGetPlayerCharset(meta.run_charset)
     when :ice_sliding
-      self.move_speed = 4
+      self.move_speed = 5
       new_charset = pbGetPlayerCharset(meta.walk_charset)
     else   # :walking, :jumping, :walking_stopped
-      self.move_speed = 3
+      self.move_speed = 5
       new_charset = pbGetPlayerCharset(meta.walk_charset)
     end
     @character_name = new_charset if new_charset

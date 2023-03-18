@@ -29,6 +29,7 @@ def mainFunctionDebug
     Compiler.main
     Game.initialize
     Game.set_up_system
+    write_version
     Graphics.update
     Graphics.freeze
     $scene = pbCallTitle

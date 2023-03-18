@@ -766,7 +766,7 @@ MultipleForms.register(:PIKACHU, {
     next if pkmn.form_simple >= 2
     if $game_map
       map_pos = $game_map.metadata&.town_map_position
-      next 1 if map_pos && map_pos[0] == 1   # Tiall region
+      next 1 if map_pos && map_pos[0] == 1   # Safari Zone
     end
     next 0
   }
@@ -780,7 +780,7 @@ MultipleForms.register(:KOFFING, {
     next if pkmn.form_simple >= 2
     if $game_map
       map_pos = $game_map.metadata&.town_map_position
-      next 1 if map_pos && map_pos[0] == 2   # Galar region
+      next 1 if map_pos && map_pos[0] == 2   # Safari Zone
     end
     next 0
   }

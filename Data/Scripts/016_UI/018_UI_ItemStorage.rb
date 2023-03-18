@@ -69,7 +69,7 @@ class ItemStorage_Scene
     pbUpdateSpriteHash(@sprites)
   end
 
-  def pbStartScene(bag)
+  def pbStartScene(bag, party)
     @viewport   = Viewport.new(0, 0, Graphics.width, Graphics.height)
     @viewport.z = 99999
     @bag = bag

@@ -52,7 +52,7 @@ class Battle
         pbSEPlay("Battle flee")
         pbDisplay(_INTL("{1} forfeited the match!", self.pbPlayer.name))
         @decision = 3
-        $map_list.push($game_map.map_id)
+        $map_log.register($game_map.map_id)
         return 1
       end
       return 0
@@ -62,7 +62,7 @@ class Battle
       pbSEPlay("Battle flee")
       pbDisplayPaused(_INTL("You got away safely!"))
       @decision = 3
-      $map_list.push($game_map.map_id)
+      $map_log.register($game_map.map_id)
       return 1
     end
     if !@canRun
@@ -74,7 +74,7 @@ class Battle
         pbSEPlay("Battle flee")
         pbDisplayPaused(_INTL("You got away safely!"))
         @decision = 3
-        $map_list.push($game_map.map_id)
+        $map_log.register($game_map.map_id)
         return 1
       end
       # Abilities that guarantee escape
@@ -85,7 +85,7 @@ class Battle
         pbSEPlay("Battle flee")
         pbDisplayPaused(_INTL("You got away safely!"))
         @decision = 3
-        $map_list.push($game_map.map_id)
+        $map_log.register($game_map.map_id)
         return 1
       end
       # Held items that guarantee escape
@@ -94,7 +94,7 @@ class Battle
         pbSEPlay("Battle flee")
         pbDisplayPaused(_INTL("{1} fled using its {2}!", battler.pbThis, battler.itemName))
         @decision = 3
-        $map_list.push($game_map.map_id)
+        $map_log.register($game_map.map_id)
         return 1
       end
       # Other certain trapping effects
@@ -139,6 +139,7 @@ class Battle
       pbSEPlay("Battle flee")
       pbDisplayPaused(_INTL("You got away safely!"))
       @decision = 3
+      $map_log.register($game_map.map_id)
       return 1
     end
     pbDisplayPaused(_INTL("You couldn't get away!"))

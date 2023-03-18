@@ -187,8 +187,12 @@ class Battle::Move::HitOncePerUserTeamMember < Battle::Move
   end
 
   def pbBaseDamage(baseDmg, user, target)
-    i = @beatUpList.shift   # First element in array, and removes it from array
-    atk = @battle.pbParty(user.index)[i].baseStats[:ATTACK]
+    i = @beatUpList.shift if @beatUpList != nil   # First element in array, and removes it from array
+    if (user.opposes? && @battle.wildBattle?)
+      atk = user.pokemon.baseStats[:ATTACK] 
+    else
+      atk = @battle.pbParty(user.index)[i].baseStats[:ATTACK]
+    end
     return 5 + (atk / 10)
   end
 end

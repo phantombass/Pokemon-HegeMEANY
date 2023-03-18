@@ -53,9 +53,9 @@ end
 class Battle::Move::AddMoneyGainedFromBattle < Battle::Move
   def pbEffectGeneral(user)
     if user.pbOwnedByPlayer?
-      @battle.field.effects[PBEffects::PayDay] += 5 * user.level
+      @battle.field.effects[PBEffects::PayDay] += 0 * user.level
     end
-    @battle.pbDisplay(_INTL("Coins were scattered everywhere!"))
+    @battle.pbDisplay(_INTL("Nice try, peasant. No money for you."))
   end
 end
 

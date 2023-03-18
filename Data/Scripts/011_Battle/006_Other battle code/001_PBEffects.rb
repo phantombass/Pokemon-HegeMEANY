@@ -119,7 +119,6 @@ module PBEffects
   WaterSport          = 114
   WeightChange        = 115
   Yawn                = 116
-  CaennerbongDance    = 117
 
   #=============================================================================
   # These effects apply to a battler position

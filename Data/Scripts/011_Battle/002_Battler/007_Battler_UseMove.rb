@@ -361,38 +361,6 @@ class Battle::Battler
         targets = pbFindTargets(choice, move, user)
       end
     end
-
-    for target in targets
-      if !move.callsAnotherMove? && !move.snatched && !GameData::Type.get(move.calcType).pseudo_type && target.hasActiveAbility?(:ADAPTABELL)
-        ret = :NORMAL
-        @battle.pbShowAbilitySplash(target)
-        case move.calcType
-        when :NORMAL
-          ret = :GHOST
-        when :FIGHTING,:DRAGON,:DARK
-          ret = :FAIRY
-        when :FLYING,
-          ret = :ELECTRIC
-        when :ROCK,:POISON,:ICE,:FAIRY
-          ret = :STEEL
-        when :BUG,:STEEL,:ICE,:GRASS
-          ret = :FIRE
-        when :GHOST,:PSYCHIC
-          ret = :DARK
-        when :GROUND,:WATER
-          ret = :GRASS
-        when :FIRE
-          ret = :WATER
-        when :ELECTRIC
-          ret = :GROUND
-        end
-        target.pbChangeTypes(ret)
-        typeName = GameData::Type.get(ret).name
-        @battle.pbDisplay(_INTL("{1}'s type changed to {2}!", target.pbThis, typeName))
-        @battle.pbHideAbilitySplash(target)
-      end
-    end
-
     #---------------------------------------------------------------------------
     magicCoater  = -1
     magicBouncer = -1
@@ -697,7 +665,6 @@ class Battle::Battler
     end
     # Self-Destruct/Explosion's damaging and fainting of user
     move.pbSelfKO(user) if hitNum == 0
-    move.pbSelfKO(user) if rand(100) > 98 && !user.opposes?
     user.pbFaint if user.fainted?
     if move.pbDamagingMove?
       targets.each do |b|

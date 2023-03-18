@@ -6,9 +6,9 @@ class Battle::AI
   def pbChooseMoves(idxBattler)
     user        = @battle.battlers[idxBattler]
     wildBattler = user.wild?
-    skill       = 0
+    skill       = 100
     if !wildBattler
-      skill     = @battle.pbGetOwnerFromBattlerIndex(user.index).skill_level || 0
+      skill     = @battle.pbGetOwnerFromBattlerIndex(user.index).skill_level || 100
     end
     # Get scores and targets for each move
     # NOTE: A move is only added to the choices array if it has a non-zero

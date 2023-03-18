@@ -483,7 +483,7 @@ class Battle::Battler
   end
 
   def hasMoldBreaker?
-    return hasActiveAbility?([:MOLDBREAKER, :TERAVOLT, :TURBOBLAZE, :CLEANWATER])
+    return hasActiveAbility?([:MOLDBREAKER, :TERAVOLT, :TURBOBLAZE])
   end
 
   def canChangeType?

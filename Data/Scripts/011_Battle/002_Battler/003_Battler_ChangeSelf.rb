@@ -95,7 +95,6 @@ class Battle::Battler
     pbAbilitiesOnFainting
     # Check for end of primordial weather
     @battle.pbEndPrimordialWeather
-    $player.party.delete_at(self.index) if !self.opposes?
   end
 
   #=============================================================================

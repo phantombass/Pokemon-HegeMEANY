@@ -299,22 +299,3 @@ MenuHandlers.add(:pause_menu, :debug, {
     next false
   }
 })
-
-MenuHandlers.add(:pause_menu, :quit_game, {
-  "name"      => _INTL("Quit Game"),
-  "order"     => 90,
-  "effect"    => proc { |menu|
-    menu.pbHideMenu
-    if pbConfirmMessage(_INTL("Are you sure you want to quit the game?"))
-      scene = PokemonSave_Scene.new
-      screen = PokemonSaveScreen.new(scene)
-      screen.pbSaveScreen
-      menu.pbEndScene
-      $scene = nil
-      next true
-    end
-    menu.pbRefresh
-    menu.pbShowMenu
-    next false
-  }
-})

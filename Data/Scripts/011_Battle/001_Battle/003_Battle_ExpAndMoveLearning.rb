@@ -121,10 +121,10 @@ class Battle
     end
     return if exp <= 0
     # Pokémon gain more Exp from trainer battles
-    exp = (exp * 1.5).floor if trainerBattle?
+    exp = (exp * 1.5).floor if Settings::MORE_EXP_FROM_TRAINER_POKEMON && trainerBattle?
     # Scale the gained Exp based on the gainer's level (or not)
     if Settings::SCALED_EXP_FORMULA
-      exp /= 5
+      exp /= 10
       levelAdjust = ((2 * level) + 10.0) / (pkmn.level + level + 10.0)
       levelAdjust = levelAdjust**5
       levelAdjust = Math.sqrt(levelAdjust)
@@ -132,7 +132,7 @@ class Battle
       exp = exp.floor
       exp += 1 if isPartic || hasExpShare
     else
-      exp /= 7
+      exp /= 14
     end
     # Foreign Pokémon gain more Exp
     isOutsider = (pkmn.owner.id != pbPlayer.id ||

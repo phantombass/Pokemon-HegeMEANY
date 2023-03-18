@@ -28,9 +28,9 @@ class Battle::AI
         end
       end
     end
-    # Pokémon can't do anything (must have been in battle for at least 5 rounds)
+    # Pokémon can't do anything (must have been in battle for at least 1 rounds)
     if !@battle.pbCanChooseAnyMove?(idxBattler) &&
-       battler.turnCount && battler.turnCount >= 5
+       battler.turnCount && battler.turnCount >= 1
       shouldSwitch = true
     end
     # Pokémon is Perish Songed and has Baton Pass
@@ -113,15 +113,15 @@ class Battle::AI
           typeMod = pbCalcTypeModPokemon(pkmn, battler.pbDirectOpposing(true))
           if Effectiveness.super_effective?(typeMod)
             # Greater weight if new Pokemon's type is effective against target
-            weight = 85
+            weight = 95
           end
           list.unshift(i) if pbAIRandom(100) < weight   # Put this Pokemon first
         elsif moveType && Effectiveness.resistant?(pbCalcTypeMod(moveType, battler, battler))
-          weight = 40
+          weight = 95
           typeMod = pbCalcTypeModPokemon(pkmn, battler.pbDirectOpposing(true))
           if Effectiveness.super_effective?(typeMod)
             # Greater weight if new Pokemon's type is effective against target
-            weight = 60
+            weight = 95
           end
           list.unshift(i) if pbAIRandom(100) < weight   # Put this Pokemon first
         else

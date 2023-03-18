@@ -54,11 +54,11 @@ module Settings
 
   # The minimum number of badges required to boost each stat of a player's
   # Pokémon by 1.1x, in battle only.
-  NUM_BADGES_BOOST_ATTACK  = (MECHANICS_GENERATION >= 4) ? 999 : 1
-  NUM_BADGES_BOOST_DEFENSE = (MECHANICS_GENERATION >= 4) ? 999 : 5
-  NUM_BADGES_BOOST_SPATK   = (MECHANICS_GENERATION >= 4) ? 999 : 7
-  NUM_BADGES_BOOST_SPDEF   = (MECHANICS_GENERATION >= 4) ? 999 : 7
-  NUM_BADGES_BOOST_SPEED   = (MECHANICS_GENERATION >= 4) ? 999 : 3
+  NUM_BADGES_BOOST_ATTACK  = (MECHANICS_GENERATION >= 4) ? 999 : 999
+  NUM_BADGES_BOOST_DEFENSE = (MECHANICS_GENERATION >= 4) ? 999 : 999
+  NUM_BADGES_BOOST_SPATK   = (MECHANICS_GENERATION >= 4) ? 999 : 999
+  NUM_BADGES_BOOST_SPDEF   = (MECHANICS_GENERATION >= 4) ? 999 : 999
+  NUM_BADGES_BOOST_SPEED   = (MECHANICS_GENERATION >= 4) ? 999 : 999
 
   #=============================================================================
 
@@ -79,13 +79,15 @@ module Settings
   # Whether a Pokémon holding a Power item gains 8 (true) or 4 (false) EVs in
   # the relevant stat.
   MORE_EVS_FROM_POWER_ITEMS            = (MECHANICS_GENERATION >= 7)
+   # yes
+  MORE_EXP_FROM_TRAINER_POKEMON            = true
   # Whether the critical capture mechanic applies. Note that its calculation is
   # based on a total of 600+ species (i.e. that many species need to be caught
   # to provide the greatest critical capture chance of 2.5x), and there may be
   # fewer species in your game.
   ENABLE_CRITICAL_CAPTURES             = (MECHANICS_GENERATION >= 5)
   # Whether Pokémon gain Exp for capturing a Pokémon.
-  GAIN_EXP_FOR_CAPTURE                 = (MECHANICS_GENERATION >= 6)
+  GAIN_EXP_FOR_CAPTURE                 = (MECHANICS_GENERATION >= 4)
   # Whether the player is asked what to do with a newly caught Pokémon if their
   # party is full. If true, the player can toggle whether they are asked this in
   # the Options screen.

@@ -222,9 +222,6 @@ class Battle::Move
       target.damageState.affection_critical = true
       return true
     end
-    return true if !user.opposes? && rand(100) > 98
-    return true if user.opposes? && rand(100) > 49
-    return true if user.effects[PBEffects::CaennerbongDance] == true && target.effects[PBEffects::Attract] >= 0
     return false
   end
 
@@ -517,7 +514,6 @@ class Battle::Move
     end
     ret *= 2 if user.hasActiveAbility?(:SERENEGRACE) ||
                 user.pbOwnSide.effects[PBEffects::Rainbow] > 0
-    ret = 50 if user.opposes?
     return ret
   end
 end

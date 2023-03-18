@@ -35,11 +35,11 @@ module Settings
   # The level of newly hatched Pokémon.
   EGG_LEVEL            = 1
   # The odds of a newly generated Pokémon being shiny (out of 65536).
-  SHINY_POKEMON_CHANCE = (MECHANICS_GENERATION >= 6) ? 16 : 8
+  SHINY_POKEMON_CHANCE = (MECHANICS_GENERATION >= 6) ? 128 : 64
   # Whether super shininess is enabled (uses a different shiny animation).
   SUPER_SHINY          = (MECHANICS_GENERATION >= 8)
   # The odds of a wild Pokémon/bred egg having Pokérus (out of 65536).
-  POKERUS_CHANCE       = 3
+  POKERUS_CHANCE       = 18
 
   #=============================================================================
 
@@ -55,7 +55,7 @@ module Settings
   NEW_BERRY_PLANTS                           = (MECHANICS_GENERATION >= 4)
   # Whether fishing automatically hooks the Pokémon (true), or whether there is
   # a reaction test first (false).
-  FISHING_AUTO_HOOK                          = false
+  FISHING_AUTO_HOOK                          = true
   # The ID of the common event that runs when the player starts fishing (runs
   # instead of showing the casting animation).
   FISHING_BEGIN_COMMON_EVENT                 = -1
@@ -156,14 +156,14 @@ module Settings
   # second badge, etc.
   #   e.g. To require the second badge, put false and 1.
   #        To require at least 2 badges, put true and 2.
+  BADGE_FOR_FLY       = 0
   BADGE_FOR_CUT       = 1
-  BADGE_FOR_FLASH     = 2
-  BADGE_FOR_ROCKSMASH = 3
+  BADGE_FOR_ROCKSMASH = 2
+  BADGE_FOR_WATERFALL = 3
   BADGE_FOR_SURF      = 4
-  BADGE_FOR_FLY       = 5
-  BADGE_FOR_STRENGTH  = 6
-  BADGE_FOR_DIVE      = 7
-  BADGE_FOR_WATERFALL = 8
+  BADGE_FOR_STRENGTH  = 5
+  BADGE_FOR_DIVE      = 6
+  BADGE_FOR_FLASH     = 7
 
   #=============================================================================
 
@@ -190,17 +190,17 @@ module Settings
   #=============================================================================
 
   # The number of boxes in Pokémon storage.
-  NUM_STORAGE_BOXES   = 40
+  NUM_STORAGE_BOXES   = 30
   # Whether putting a Pokémon into Pokémon storage will heal it. IF false, they
   # are healed by the Recover All: Entire Party event command (at Poké Centers).
-  HEAL_STORED_POKEMON = (MECHANICS_GENERATION >= 8)
+  HEAL_STORED_POKEMON = false
 
   #=============================================================================
 
   # Whether the Pokédex list shown is the one for the player's current region
   # (true), or whether a menu pops up for the player to manually choose which
   # Dex list to view if more than one is available (false).
-  USE_CURRENT_REGION_DEX = false
+  USE_CURRENT_REGION_DEX = true
   # The names of the Pokédex lists, in the order they are defined in the PBS
   # file "regional_dexes.txt". The last name is for the National Dex and is
   # added onto the end of this array (remember that you don't need to use it).

@@ -335,7 +335,6 @@ class Battle
       # Position/field effects triggered by the battler appearing
       pbEffectsOnBattlerEnteringPosition(b)   # Healing Wish/Lunar Dance
       pbEntryHazards(b)
-      type_effects(b) if b.opposes?
       # Battler faints if it is knocked out because of an entry hazard above
       if b.fainted?
         b.pbFaint

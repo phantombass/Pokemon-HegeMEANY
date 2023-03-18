@@ -46,56 +46,52 @@ class Scene_Credits
   # This next piece of code is the credits.
   # Start Editing
   CREDIT = <<_END_
+  
+Thank you to everyone who caused your suffering
+  
+Allister
+Shooting everyone
+  
+Bagon
+Not knowing how to go under a bridge
 
-Your credits go here.
+Diamond
+A picture of a cat
 
-Your credits go here.
+Fingkof
+Making us nerf Jumpluff
+  
+Geno
+Learning to hate programming
 
-Your credits go here.
+Marlotix
+Pichu
+  
+MasterKrook
+Krookodile is too fast
+  
+Melody
+Making your gym too hard
+  
+Osha
+Teaching me how to bully through paint
+  
+Razzvy
+Wide Lens
 
-Your credits go here.
-
-Your credits go here.
-
-{INSERTS_PLUGIN_CREDITS_DO_NOT_REMOVE}
-
-"Pokémon Essentials" was created by:
-Flameguru
-Poccil (Peter O.)
-Maruno
-
-With contributions from:
-AvatarMonkeyKirby<s>Marin
-Boushy<s>MiDas Mike
-Brother1440<s>Near Fantastica
-FL.<s>PinkMan
-Genzai Kawakami<s>Popper
-Golisopod User<s>Rataime
-help-14<s>Savordez
-IceGod64<s>SoundSpawn
-Jacob O. Wobbrock<s>the__end
-KitsuneKouta<s>Venom12
-Lisa Anthony<s>Wachunga
-Luka S.J.<s>
-and everyone else who helped out
-
-"mkxp-z" by:
-Roza
-Based on "mkxp" by Ancurio et al.
-
-"RPG Maker XP" by:
-Enterbrain
-
-Pokémon is owned by:
-The Pokémon Company
-Nintendo
-Affiliated with Game Freak
-
-
-
-This is a non-profit fan-made game.
-No copyright infringements intended.
-Please support the official games!
+Rex
+A lot of help but mostly losing to a Verlisify balloon
+  
+Secrets
+Teaching us the power of Silvally
+  
+Vork
+Something I think
+  
+Water
+Teaching me how to edit sprites that one time
+  
+Go to bed.
 
 _END_
 # Stop Editing

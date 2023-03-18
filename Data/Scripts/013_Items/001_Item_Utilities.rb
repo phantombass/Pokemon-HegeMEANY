@@ -213,7 +213,7 @@ def pbTopRightWindow(text, scene = nil)
     Input.update
     window.update
     scene&.pbUpdate
-    break if Input.trigger?(Input::USE)
+    break if Input.trigger?(Input::BACK) or (Input::USE)
   end
   window.dispose
 end
@@ -342,7 +342,6 @@ def pbHPItem(pkmn, restoreHP, scene)
   end
   hpGain = pbItemRestoreHP(pkmn, restoreHP)
   scene.pbRefresh
-  scene.pbDisplay(_INTL("{1}'s HP was restored by {2} points.", pkmn.name, hpGain))
   return true
 end
 
@@ -812,7 +811,6 @@ def pbGiveItemToPokemon(item, pkmn, scene, pkmnid = 0)
   elsif !GameData::Item.get(item).is_mail? || pbWriteMail(item, pkmn, pkmnid, scene)
     $bag.remove(item)
     pkmn.item = item
-    scene.pbDisplay(_INTL("{1} is now holding the {2}.", pkmn.name, newitemname))
     return true
   end
   return false

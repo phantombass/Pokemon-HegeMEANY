@@ -418,6 +418,13 @@ Battle::AbilityEffects::StatusCheckNonIgnorable.add(:COMATOSE,
   }
 )
 
+Battle::AbilityEffects::StatusCheckNonIgnorable.add(:OMNIPOTENT,
+  proc { |ability, battler, status|
+    next false if !battler.isSpecies?(:CELEBI)
+    next true if status.nil? || status == :SLEEP
+  }
+)
+
 #===============================================================================
 # StatusImmunity handlers
 #===============================================================================
@@ -477,6 +484,12 @@ Battle::AbilityEffects::StatusImmunity.copy(:WATERVEIL, :WATERBUBBLE)
 Battle::AbilityEffects::StatusImmunityNonIgnorable.add(:COMATOSE,
   proc { |ability, battler, status|
     next true if battler.isSpecies?(:KOMALA)
+  }
+)
+
+Battle::AbilityEffects::StatusImmunityNonIgnorable.add(:OMNIPOTENT,
+  proc { |ability, battler, status|
+    next true if battler.isSpecies?(:CELEBI)
   }
 )
 
@@ -691,7 +704,7 @@ Battle::AbilityEffects::StatLossImmunity.add(:CLEARBODY,
   }
 )
 
-Battle::AbilityEffects::StatLossImmunity.copy(:CLEARBODY, :WHITESMOKE)
+Battle::AbilityEffects::StatLossImmunity.copy(:CLEARBODY, :WHITESMOKE, :OMNIPOTENT)
 
 Battle::AbilityEffects::StatLossImmunity.add(:FLOWERVEIL,
   proc { |ability, battler, stat, battle, showMessages|
@@ -823,14 +836,6 @@ Battle::AbilityEffects::PriorityChange.add(:PRANKSTER,
     if move.statusMove?
       battler.effects[PBEffects::Prankster] = true
       next pri + 1
-    end
-  }
-)
-
-Battle::AbilityEffects::PriorityChange.add(:ADAPTABELL,
-  proc { |ability, battler, move, pri|
-    if move.statusMove?
-      next pri + 2
     end
   }
 )
@@ -1285,7 +1290,7 @@ Battle::AbilityEffects::DamageCalcFromUser.add(:HUGEPOWER,
   }
 )
 
-Battle::AbilityEffects::DamageCalcFromUser.copy(:HUGEPOWER, :PUREPOWER, :DARLING)
+Battle::AbilityEffects::DamageCalcFromUser.copy(:HUGEPOWER, :PUREPOWER)
 
 Battle::AbilityEffects::DamageCalcFromUser.add(:HUSTLE,
   proc { |ability, user, target, move, mults, baseDmg, type|
@@ -1337,8 +1342,6 @@ Battle::AbilityEffects::DamageCalcFromUser.add(:PUNKROCK,
     mults[:attack_multiplier] *= 1.3 if move.soundMove?
   }
 )
-
-Battle::AbilityEffects::DamageCalcFromUser.copy(:PUNKROCK, :AMPEDUP)
 
 Battle::AbilityEffects::DamageCalcFromUser.add(:RECKLESS,
   proc { |ability, user, target, move, mults, baseDmg, type|
@@ -1525,7 +1528,7 @@ Battle::AbilityEffects::DamageCalcFromTarget.add(:FILTER,
   }
 )
 
-Battle::AbilityEffects::DamageCalcFromTarget.copy(:FILTER, :SOLIDROCK)
+Battle::AbilityEffects::DamageCalcFromTarget.copy(:FILTER, :SOLIDROCK, :OMNIPOTENT)
 
 Battle::AbilityEffects::DamageCalcFromTarget.add(:FLOWERGIFT,
   proc { |ability, user, target, move, mults, baseDmg, type|
@@ -1588,8 +1591,6 @@ Battle::AbilityEffects::DamageCalcFromTarget.add(:PUNKROCK,
     mults[:final_damage_multiplier] /= 2 if move.soundMove?
   }
 )
-
-Battle::AbilityEffects::DamageCalcFromTarget.copy(:PUNKROCK, :AMPEDUP)
 
 Battle::AbilityEffects::DamageCalcFromTarget.add(:THICKFAT,
   proc { |ability, user, target, move, mults, baseDmg, type|
@@ -1779,8 +1780,6 @@ Battle::AbilityEffects::OnBeingHit.add(:CUTECHARM,
     battle.pbHideAbilitySplash(target)
   }
 )
-
-Battle::AbilityEffects::OnBeingHit.copy(:CUTECHARM,:DARLING)
 
 Battle::AbilityEffects::OnBeingHit.add(:EFFECTSPORE,
   proc { |ability, user, target, move, battle|
@@ -2911,8 +2910,6 @@ Battle::AbilityEffects::OnSwitchIn.add(:MOLDBREAKER,
   }
 )
 
-Battle::AbilityEffects::OnSwitchIn.copy(:MOLDBREAKER,:CLEANWATER)
-
 Battle::AbilityEffects::OnSwitchIn.add(:NEUTRALIZINGGAS,
   proc { |ability, battler, battle, switch_in|
     battle.pbShowAbilitySplash(battler, true)
@@ -2944,6 +2941,14 @@ Battle::AbilityEffects::OnSwitchIn.add(:NEUTRALIZINGGAS,
     if had_unnerve && !battle.pbCheckGlobalAbility(:UNNERVE)
       battle.allBattlers.each { |b| b.pbItemsOnUnnerveEnding }
     end
+  }
+)
+
+Battle::AbilityEffects::OnSwitchIn.add(:OMNIPOTENT,
+  proc { |ability, battler, battle, switch_in|
+    battle.pbShowAbilitySplash(battler)
+    battle.pbDisplay(_INTL("{1} is staring you down!", battler.pbThis))
+    battle.pbHideAbilitySplash(battler)
   }
 )
 
@@ -3052,7 +3057,7 @@ Battle::AbilityEffects::OnSwitchIn.add(:SNOWWARNING,
 Battle::AbilityEffects::OnSwitchIn.add(:TERAVOLT,
   proc { |ability, battler, battle, switch_in|
     battle.pbShowAbilitySplash(battler)
-    battle.pbDisplay(_INTL("{1} is radiating a bursting aura!", battler.pbThis))
+    battle.pbDisplay(_INTL("{1} is staring you down!", battler.pbThis))
     battle.pbHideAbilitySplash(battler)
   }
 )
