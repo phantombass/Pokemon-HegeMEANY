@@ -255,7 +255,7 @@ MenuHandlers.add(:pause_menu, :save, {
   "name"      => _INTL("Save"),
   "order"     => 60,
   "condition" => proc { next $game_system && !$game_system.save_disabled &&
-                             !pbInSafari? && !pbInBugContest? },
+                             !pbInSafari? && !pbInBugContest? && $game_map.map_id == 32 },
   "effect"    => proc { |menu|
     menu.pbHideMenu
     scene = PokemonSave_Scene.new
