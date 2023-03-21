@@ -1,8 +1,5 @@
 module Input
 
-REPEL_STAGES = [0,1]
-$inf_repel = 0
-
   def self.update
     update_KGC_ScreenCapture
     if trigger?(Input::F8)
@@ -12,12 +9,8 @@ $inf_repel = 0
       $GameSpeed += 1
       $GameSpeed = 0 if $GameSpeed >= SPEEDUP_STAGES.size
     end
-    if trigger?(Input::AUX2) && $game_temp.in_menu == false && $game_temp.message_window_showing == false && $repel_toggle
-      $inf_repel += 1
-      $game_variables[202] = $inf_repel
-      $inf_repel = 0 if $inf_repel >= REPEL_STAGES.size
-      $PokemonGlobal.repel = REPEL_STAGES[$inf_repel]
-      $PokemonGlobal.repel == 0 ? pbMessage(_INTL("Infinite Repel Disabled.")) : pbMessage(_INTL("Infinite Repel Enabled."))
+    if trigger?(Input::AUX2) && $game_temp.in_menu == false && $game_temp.message_window_showing == false && $game_map.map_id == 32
+      pbTimeChanger
     end
   end
 end

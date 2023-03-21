@@ -1662,7 +1662,7 @@ class Battle
   	@battleAI.sides[1].set_trainers(@opponent)
   end
 
-  def pbRecallAndReplace(idxBattler, idxParty, batonPass = false)
+  def pbRecallAndReplace(idxBattler, idxParty, randomReplacement = false, batonPass = false)
     if @battlers[idxBattler].fainted?
       $doubles_switch = nil
       $d_switch = 0
@@ -1766,7 +1766,7 @@ class Battle::Move::BadPoisonTarget
   attr_reader :toxic
 end
 
-class Battle::Move::PoisonMove
+class Battle::Move::PoisonTarget
   attr_reader :toxic
 end
 

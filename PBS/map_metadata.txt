@@ -151,6 +151,10 @@ MapPosition = 0,14,6
 BattleBack = field
 MapSize = 2,1101
 #-------------------------------
+[032]   # Prep Area
+Name = Prep Area
+Outdoor = true
+#-------------------------------
 [034]   # Ice Cave
 Name = Route 3
 Bicycle = true

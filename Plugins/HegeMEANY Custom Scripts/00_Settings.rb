@@ -1,7 +1,6 @@
 module Settings
   #UPDATE THIS WITH EVERY PUSH!!!!!!!!!!!!!!
-  GAME_VERSION = "1.0.1"
-  TIME_SHADING = false
+  GAME_VERSION = "1.0.5"
   GAIN_EXP_FOR_CAPTURE                 = false
 end
 
