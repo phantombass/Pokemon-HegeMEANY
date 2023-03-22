@@ -295,7 +295,7 @@ class PokemonLoadScreen
     commands[cmd_new_game = commands.length]  = _INTL("New Game")
     commands[cmd_options = commands.length]   = _INTL("Options")
     commands[cmd_language = commands.length]  = _INTL("Language") if Settings::LANGUAGES.length >= 2
-    commands[cmd_debug = commands.length]     = _INTL("Debug") if $DEBUG
+    commands[cmd_debug = commands.length]     = _INTL("Debug") if ($DEBUG && !$NO_ACCESS)
     commands[cmd_quit = commands.length]      = _INTL("Quit Game")
     map_id = show_continue ? @save_data[:map_factory].map.map_id : 0
     @scene.pbStartScene(commands, show_continue, @save_data[:player],

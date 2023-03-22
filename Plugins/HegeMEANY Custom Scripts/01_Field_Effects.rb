@@ -1099,12 +1099,9 @@ class Battle
     pbParty(0).each_with_index do |pkmn,i|
       next if !pkmn
       @peer.pbOnLeavingBattle(self,pkmn,@usedInBattle[0][i],true)   # Reset form
-#      if @opponent
-#        pkmn.item = $olditems[i]
-#      else
-        pkmn.item = @initialItems[0][i]
-        $player.party.delete_at(i) if pkmn.fainted?
- #     end
+      $bag.add($olditems[i])
+      pkmn.item = nil
+      $player.party.delete_at(i) if pkmn.fainted?
     end
     return @decision
   end

@@ -480,13 +480,13 @@ class PokemonBagScreen
         end
       end
       commands[cmdGive = commands.length]       = _INTL("Give") if $player.pokemon_party.length > 0 && itm.can_hold?
-      commands[cmdToss = commands.length]       = _INTL("Toss") if !itm.is_important? || $DEBUG
+      commands[cmdToss = commands.length]       = _INTL("Toss") if !itm.is_important? || ($DEBUG && !$NO_ACCESS)
       if @bag.registered?(item)
         commands[cmdRegister = commands.length] = _INTL("Deselect")
       elsif pbCanRegisterItem?(item)
         commands[cmdRegister = commands.length] = _INTL("Register")
       end
-      commands[cmdDebug = commands.length]      = _INTL("Debug") if $DEBUG
+      commands[cmdDebug = commands.length]      = _INTL("Debug") if ($DEBUG && !$NO_ACCESS)
       commands[commands.length]                 = _INTL("Cancel")
       # Show commands generated above
       itemname = itm.name

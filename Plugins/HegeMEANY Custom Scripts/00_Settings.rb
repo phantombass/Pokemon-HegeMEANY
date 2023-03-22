@@ -1,6 +1,6 @@
 module Settings
   #UPDATE THIS WITH EVERY PUSH!!!!!!!!!!!!!!
-  GAME_VERSION = "1.0.5"
+  GAME_VERSION = "1.0.12"
   GAIN_EXP_FOR_CAPTURE                 = false
 end
 
@@ -128,7 +128,7 @@ def pbStartOver(gameover = true)
     pbMessage(_INTL("\\w[]\\wm\\c[8]\\l[3]Better luck next time..."))
     write_run
     SaveData.delete_file
-    raise SystemExit.new
+    $game_temp.title_screen_calling = true
   end
   $stats.blacked_out_count += 1
   $player.heal_party

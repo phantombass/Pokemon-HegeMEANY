@@ -875,7 +875,7 @@ class PBAI
                 score = PBAI::SwitchHandler.trigger_type(i.type,score,@ai,self,proj,target)
               end
             end
-            PBAI.log("\n#{proj.pokemon.name} => #{score}")
+           # PBAI.log("\n#{proj.pokemon.name} => #{score}")
           end
           eligible = true
           eligible = false if proj.battler != nil # Already active

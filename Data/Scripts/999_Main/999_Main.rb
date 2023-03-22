@@ -14,11 +14,11 @@ def pbCallTitle
 end
 
 def mainFunction
-  if $DEBUG
-    pbCriticalCode { mainFunctionDebug }
-  else
+#  if $DEBUG
+#    pbCriticalCode { mainFunctionDebug }
+#  else
     mainFunctionDebug
-  end
+#  end
   return 1
 end
 
