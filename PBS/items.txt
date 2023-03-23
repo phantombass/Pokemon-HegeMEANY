@@ -7006,7 +7006,7 @@ Description = A peculiar set of armor that can make a certain Pokémon evolve. M
 Name = Scroll of Darkness
 NamePlural = Scroll of Darkness
 Pocket = 1
-Price = 0
+Price = 10000
 FieldUse = OnPokemon
 Flags = EvolutionStone,Fling_32
 Description = A scroll that evolves certain Pokémon. Written on it are the true secrets of the path of darkness.
@@ -7015,7 +7015,7 @@ Description = A scroll that evolves certain Pokémon. Written on it are the true
 Name = Scroll of Waters
 NamePlural = Scroll of Waters
 Pocket = 1
-Price = 0
+Price = 10000
 FieldUse = OnPokemon
 Flags = EvolutionStone,Fling_33
 Description = A scroll that evolves certain Pokémon. Written on it are the true secrets of the path of water.
@@ -7031,7 +7031,7 @@ Description = A shard of what appears to be an old blade of some sort. It is hel
 Name = Booster Energy
 NamePlural = Booster Energies
 Pocket = 1
-Price = 0
+Price = 5000
 Description = An item to be held by Pokémon with certain Abilities. It boosts the strength of the Pokémon.
 #-------------------------------
 [ABILITYSHIELD]
