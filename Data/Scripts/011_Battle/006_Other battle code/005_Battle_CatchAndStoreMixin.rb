@@ -210,11 +210,11 @@ module Battle::CatchAndStoreMixin
     # Get a catch rate if one wasn't provided
     catch_rate = pkmn.species_data.catch_rate if !catch_rate
     # Modify catch_rate depending on the Poké Ball's effect
-    if !pkmn.species_data.has_flag?("UltraBeast") || ball == :BEASTBALL
+  #  if !pkmn.species_data.has_flag?("UltraBeast") || ball == :BEASTBALL
       catch_rate = Battle::PokeBallEffects.modifyCatchRate(ball, catch_rate, self, battler)
-    else
-      catch_rate /= 10
-    end
+   # else
+    #  catch_rate /= 10
+    #end
     # First half of the shakes calculation
     a = battler.totalhp
     b = battler.hp
