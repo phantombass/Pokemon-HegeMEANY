@@ -22,7 +22,7 @@ def pbTimeChanger
   end
 end
 
-TIME_CHANGE = [8,22]
+TIME_CHANGE = [10,22]
 $time_changer = PBDayNight.isNight? ? 1 : 0
 $time_update = false
 

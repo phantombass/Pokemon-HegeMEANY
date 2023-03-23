@@ -26,6 +26,7 @@ module Game
     else
       SaveData.load_bootup_values(save_data)
     end
+    $NO_ACCESS = true
     # Set resize factor
     pbSetResizeFactor([$PokemonSystem.screensize, 4].min)
     # Set language (and choose language if there is no save file)

@@ -40,12 +40,19 @@ Battle::PokeBallEffects::IsUnconditional.add(:MASTERBALL, proc { |ball, battle, 
 #       Ball is a Beast Ball). In this case, all Balls' catch rates are set
 #       elsewhere to 0.1x.
 #===============================================================================
+Battle::PokeBallEffects::ModifyCatchRate.add(:POKEBALL, proc { |ball, catchRate, battle, battler|
+  next catchRate * 255 if $game_switches[77]
+  next catchRate * 2
+})
+
 Battle::PokeBallEffects::ModifyCatchRate.add(:GREATBALL, proc { |ball, catchRate, battle, battler|
-  next catchRate * 1.5
+  next catchRate * 255 if $game_switches[77]
+  next catchRate * 2.5
 })
 
 Battle::PokeBallEffects::ModifyCatchRate.add(:ULTRABALL, proc { |ball, catchRate, battle, battler|
-  next catchRate * 2
+  next catchRate * 255 if $game_switches[77]
+  next catchRate * 3
 })
 
 Battle::PokeBallEffects::ModifyCatchRate.add(:SAFARIBALL, proc { |ball, catchRate, battle, battler|
@@ -89,6 +96,7 @@ Battle::PokeBallEffects::ModifyCatchRate.add(:DUSKBALL, proc { |ball, catchRate,
 })
 
 Battle::PokeBallEffects::ModifyCatchRate.add(:QUICKBALL, proc { |ball, catchRate, battle, battler|
+  catchRate *= 255 if $game_switches[77]
   catchRate *= 5 if battle.turnCount == 0
   next catchRate
 })
@@ -176,6 +184,7 @@ Battle::PokeBallEffects::ModifyCatchRate.add(:DREAMBALL, proc { |ball, catchRate
 })
 
 Battle::PokeBallEffects::ModifyCatchRate.add(:BEASTBALL, proc { |ball, catchRate, battle, battler|
+  next catchRate * 255 if $game_switches[77]
   if battler.pokemon.species_data.has_flag?("UltraBeast")
     catchRate *= 5
   else

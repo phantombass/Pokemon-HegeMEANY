@@ -49,49 +49,25 @@ class Scene_Credits
   
 Thank you to everyone who caused your suffering
   
-Allister
-Shooting everyone
-  
-Bagon
-Not knowing how to go under a bridge
+All the work - Phantombass
 
-Diamond
-A picture of a cat
+Major help with this while I was at work - DarkDucky
 
-Fingkof
-Making us nerf Jumpluff
-  
-Geno
-Learning to hate programming
+Playtesters
+DarkDucky
+Hestia
+Ash
+JacubAsAlways
+Fearsome Ferrothorn
+ThirdGenGamer
 
-Marlotix
-Pichu
-  
-MasterKrook
-Krookodile is too fast
-  
-Melody
-Making your gym too hard
-  
-Osha
-Teaching me how to bully through paint
-  
-Razzvy
-Wide Lens
+Special Thanks
+LordImpidimp for the idea
+Jordanos11 on Reddit for Walking Wake and Iron Leaves sprites
 
-Rex
-A lot of help but mostly losing to a Verlisify balloon
-  
-Secrets
-Teaching us the power of Silvally
-  
-Vork
-Something I think
-  
-Water
-Teaching me how to edit sprites that one time
-  
-Go to bed.
+Happy April Fools ya pepegas
+
+Expect a real, full version of this at a later date1
 
 _END_
 # Stop Editing
