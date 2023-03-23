@@ -328,8 +328,11 @@ class HallOfFame_Scene
   def writeWelcome
     overlay = @sprites["overlay"].bitmap
     overlay.clear
+    run = $game_variables[97]
     pbDrawTextPositions(overlay, [[_INTL("Welcome to the Hall of Fame!"),
-                                   Graphics.width / 2, Graphics.height - 68, 2, BASECOLOR, SHADOWCOLOR]])
+                                   Graphics.width / 2, Graphics.height - 80, 2, BASECOLOR, SHADOWCOLOR]])
+    pbDrawTextPositions(overlay,[[_INTL("Runs: {1}",run),
+          Graphics.width/2,Graphics.height-56,2,BASECOLOR,SHADOWCOLOR]])
   end
 
   def pbAnimationLoop
