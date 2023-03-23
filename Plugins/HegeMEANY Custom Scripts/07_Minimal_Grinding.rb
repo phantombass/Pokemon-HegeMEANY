@@ -273,8 +273,16 @@ MenuHandlers.add(:party_menu, :evolve, {
         elsif evo[1].to_s.start_with?('Location')
           evoreqs[evo[0]] = nil if $game_map.map_id == evo[2]
         elsif evo[1].to_s.start_with?('Trade')
-          evoreqs[evo[0]] = evo[2] if $Trainer.has_species?(evo[2]) || pkmn.check_evolution_on_trade(evo[2])
+          evoreqs[evo[0]] = nil
         elsif evo[1].to_s.start_with?('Happiness')
+          evoreqs[evo[0]] = nil
+        elsif evo[1].to_s.start_with?('Walk')
+          evoreqs[evo[0]] = nil
+        elsif evo[1].to_s.start_with?('LevelRecoil')
+          evoreqs[evo[0]] = nil
+        elsif evo[1].to_s.start_with?('EventAfter')
+          evoreqs[evo[0]] = nil
+        elsif evo[1].to_s.start_with?('BattleDeal')
           evoreqs[evo[0]] = nil
         elsif pkmn.check_evolution_on_level_up
           evoreqs[evo[0]] = nil
