@@ -399,7 +399,7 @@ PBAI::SwitchHandler.add_out do |switch,ai,battler,target|
       if encored_move.statusMove?
         switch = true
       else
-        dmgs = self.damage_dealt.select { |e| e[1] == encored_move.id }
+        dmgs = battler.damage_dealt.select { |e| e[1] == encored_move.id }
         if dmgs.size > 0
           last_dmg = dmgs[-1]
           # Bad move if it did less than 25% damage
@@ -428,7 +428,7 @@ PBAI::SwitchHandler.add_out do |switch,ai,battler,target|
     if party.any? { |pkmn| pkmn.types.include?(:DARK) }
       # We should switch to a dark type,
       # but not if we're already close to dying anyway.
-      if !self.may_die_next_round?
+      if !battler.may_die_next_round?
         switch = true
         $switch_flags[:dark] = true
       end

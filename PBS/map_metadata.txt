@@ -154,6 +154,8 @@ MapSize = 2,1101
 [032]   # Prep Area
 Name = Prep Area
 Outdoor = true
+ShowArea = true
+Weather = Rain,0
 #-------------------------------
 [034]   # Ice Cave
 Name = Route 3
