@@ -1,6 +1,6 @@
 module Settings
   #UPDATE THIS WITH EVERY PUSH!!!!!!!!!!!!!!
-  GAME_VERSION = "1.1.2"
+  GAME_VERSION = "1.1.3"
   GAIN_EXP_FOR_CAPTURE                 = false
 end
 
@@ -85,7 +85,7 @@ def write_money
   File.open("money.txt", "wb") { |f|
     money = $player.money
     run = read_run
-    mon = money + run*25000
+    mon = 100000 + money + run*25000
     f.write("#{mon}")
   }
 end
