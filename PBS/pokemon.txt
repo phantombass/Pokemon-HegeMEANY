@@ -25649,7 +25649,7 @@ Habitat = Urban
 Category = Coin Chest
 Pokedex = This Pokémon was born inside a treasure chest about 1,500 years ago. It sucks the life-force out of scoundrels who try to steal the treasure.
 Generation = 9
-Evolutions = GHOLDENGO,CollectItems,GIMMIGHOULCOIN
+Evolutions = GHOLDENGO,HoldItem,GIMMIGHOULCOIN
 FormName = Chest Form
 #-------------------------------
 [GHOLDENGO]

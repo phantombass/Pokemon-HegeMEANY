@@ -92,7 +92,7 @@ class Randomizer
         end
         $game_variables[80] = chosen
         $game_variables[81] = boss[rand(boss.length)]
-        $game_variables[82] = vers
+        $game_variables[82] = ver
         $game_switches[200] = true if ["Ash","Hestia"].include?($game_variables[81])
     end
 end
