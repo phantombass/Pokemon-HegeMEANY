@@ -313,6 +313,14 @@ class PBAI
       return !@battler.nil?
     end
 
+    def damage_taken
+      return @damage_taken
+    end
+
+    def damage_dealt
+      return @damage_dealt
+    end
+
     def effective_attack
   		stageMul = [2,2,2,2,2,2, 2, 3,4,5,6,7,8]
 	    stageDiv = [8,7,6,5,4,3, 2, 2,2,2,2,2,2]

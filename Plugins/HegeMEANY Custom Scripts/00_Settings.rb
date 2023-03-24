@@ -1,6 +1,6 @@
 module Settings
   #UPDATE THIS WITH EVERY PUSH!!!!!!!!!!!!!!
-  GAME_VERSION = "1.1.3"
+  GAME_VERSION = "1.1.4"
   GAIN_EXP_FOR_CAPTURE                 = false
 end
 
