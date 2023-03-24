@@ -1,6 +1,6 @@
 module Settings
   #UPDATE THIS WITH EVERY PUSH!!!!!!!!!!!!!!
-  GAME_VERSION = "1.1.1"
+  GAME_VERSION = "1.1.2"
   GAIN_EXP_FOR_CAPTURE                 = false
 end
 
@@ -83,7 +83,7 @@ end
 
 def write_money
   File.open("money.txt", "wb") { |f|
-    money = $game_variables[72]
+    money = $player.money
     run = read_run
     mon = money + run*25000
     f.write("#{mon}")
@@ -145,6 +145,7 @@ def pbStartOver(gameover = true)
   if gameover
     pbMessage(_INTL("\\w[]\\wm\\c[8]\\l[3]Better luck next time..."))
     write_run
+    write_money
     SaveData.delete_file
     $game_temp.title_screen_calling = true
   else
