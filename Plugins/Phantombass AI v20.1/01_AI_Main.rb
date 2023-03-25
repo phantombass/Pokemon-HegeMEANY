@@ -1121,9 +1121,9 @@ class PBAI
           baseDmg = (baseDmg * 31 / 10).floor   # Average damage dealt
         end
       when "HitTwoToFiveTimesOrThreeForAshGreninja"
-        if user.isSpecies?(:GRENINJA) && user.form == 2
+        if @battler.isSpecies?(:GRENINJA) && @battler.form == 2
           baseDmg *= 4   # 3 hits at 20 power = 4 hits at 15 power
-        elsif user.hasActiveAbility?(:SKILLLINK)
+        elsif @battler.hasActiveAbility?(:SKILLLINK)
           baseDmg *= 5
         else
           baseDmg = (baseDmg * 31 / 10).floor   # Average damage dealt
@@ -1141,7 +1141,7 @@ class PBAI
       when "MultiTurnAttackBideThenReturnDoubleDamage"   # Bide
         baseDmg = 40
       when "UserFaintsFixedDamageUserHP"   # Final Gambit
-        baseDmg = user.hp
+        baseDmg = @battler.hp
       when "EffectivenessIncludesFlyingType"   # Flying Press
         if GameData::Type.exists?(:FLYING)
           if @skill >= PBTrainerAI.highSkill
