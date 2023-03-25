@@ -242,8 +242,8 @@ Pokemon = ZYGARDE,50
 #-------------------------------
 [ENGINEER,Meme]
 Pokemon = EELEKTROSS,50
-    Item = AIRBALLOON
-    Ability = WONDERGUARD
+    Item = ASSAULTVEST
+    Ability = EARTHEATER
     Nature = MODEST
     IV = 31,0,31,31,31,31
     EV = 252,0,4,0,252,0
