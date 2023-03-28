@@ -3260,7 +3260,19 @@ Pokemon = DARKRAI,50
     Happiness = 255
     Name = Ducky
     Item = FOCUSSASH
-    Ability = BADDREAMS
+    Ability = NIGHTTERROR
+    Nature = TIMID
+    IV = 31,31,31,31,31,31
+    EV = 0,0,0,252,252,0
+    Role = WINCON
+    Moves = DARKPULSE,SLUDGEBOMB,ICEBEAM,NASTYPLOT
+#-------------------------------
+[COOLTRAINER_M,Ducky,1]
+Pokemon = DARKRAI,50
+    Happiness = 255
+    Name = Ducky
+    Item = FOCUSSASH
+    Ability = NIGHTTERROR
     Nature = TIMID
     IV = 31,31,31,31,31,31
     EV = 0,0,0,252,252,0

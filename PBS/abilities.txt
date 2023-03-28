@@ -491,6 +491,10 @@ Name = Flower Gift
 Description = Powers up party Pokémon when it is sunny.
 #-------------------------------
 [BADDREAMS]
+Name = Bad Dreams
+Description = Reduces a sleeping foe's HP.
+#-------------------------------
+[NIGHTTERROR]
 Name = Night Terror
 Description = Reduces a sleeping foe's HP.
 #-------------------------------

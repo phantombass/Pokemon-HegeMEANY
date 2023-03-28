@@ -1396,15 +1396,16 @@ Battle::AbilityEffects::OnSwitchIn.add(:GRASSYSURGE,
   }
 )
 
-Battle::AbilityEffects::OnSwitchIn.add(:BADDREAMS,
+Battle::AbilityEffects::OnSwitchIn.add(:NIGHTTERROR,
   proc { |ability, battler, battle, switch_in|
-    oDef = oSpDef = 0
+    battle.pbShowAbilitySplash(battler)
     battle.allOtherSideBattlers(battler.index).each do |b|
-      b.effects[PBEffects::Yawn] = 2
-      battle.pbDisplay(INTL("{1} became drowsy!",b.pbThis))
+      b.effects[PBEffects::Yawn] = 1
+      battle.pbDisplay(_INTL("{1} became drowsy!",b.pbThis))
       b.pbSleepDuration(2)
       b.effects[PBEffects::Nightmare] = true
     end
+    battle.pbHideAbilitySplash(battler)
   }
 )
 
