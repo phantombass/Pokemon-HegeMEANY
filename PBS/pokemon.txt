@@ -1610,7 +1610,7 @@ Category = Tadpole
 Pokedex = Its body surface is always wet and slick with an oily fluid. Because of this greasy covering, it can easily slip and slide out of the clutches of any enemy in battle.
 Generation = 1
 WildItemUncommon = KINGSROCK
-Evolutions = POLIWRATH,Item,WATERSTONE,POLITOED,TradeItem,KINGSROCK
+Evolutions = POLIWRATH,Item,WATERSTONE,POLITOED,HoldItem,KINGSROCK
 #-------------------------------
 [POLIWRATH]
 Name = Poliwrath
@@ -1691,7 +1691,7 @@ Category = Psi
 Pokedex = It is rumored that a boy with psychic abilities suddenly transformed into Kadabra while he was assisting research into extrasensory powers.
 Generation = 1
 WildItemUncommon = TWISTEDSPOON
-Evolutions = ALAKAZAM,Trade,
+Evolutions = ALAKAZAM,Level,36
 #-------------------------------
 [ALAKAZAM]
 Name = Alakazam
@@ -1772,7 +1772,7 @@ Category = Superpower
 Pokedex = A belt is worn by a Machoke to keep its overwhelming power under control. Because it is so dangerous, no one has ever removed the belt.
 Generation = 1
 WildItemUncommon = FOCUSBAND
-Evolutions = MACHAMP,Trade,
+Evolutions = MACHAMP,Level,36
 #-------------------------------
 [MACHAMP]
 Name = Machamp
@@ -1985,7 +1985,7 @@ Category = Rock
 Pokedex = They descend from mountains by tumbling down steep slopes. They are so brutal, they smash aside obstructing trees and huge boulders with thunderous tackles.
 Generation = 1
 WildItemUncommon = EVERSTONE
-Evolutions = GOLEM,Trade,
+Evolutions = GOLEM,Level,36
 #-------------------------------
 [GOLEM]
 Name = Golem
@@ -2091,7 +2091,7 @@ Category = Dopey
 Pokedex = It catches prey by dipping its tail in water at the side of a river. But it often forgets what it is doing and spends whole days just loafing at the water's edge.
 Generation = 1
 WildItemUncommon = LAGGINGTAIL
-Evolutions = SLOWBRO,Level,37,SLOWKING,TradeItem,KINGSROCK
+Evolutions = SLOWBRO,Level,37,SLOWKING,HoldItem,KINGSROCK
 #-------------------------------
 [SLOWBRO]
 Name = Slowbro
@@ -2466,7 +2466,7 @@ Habitat = Cave
 Category = Gas
 Pokedex = If a Haunter beckons you while it is floating in darkness, don't approach it. This Pokémon will try to lick you with its tongue and steal your life away.
 Generation = 1
-Evolutions = GENGAR,Trade,
+Evolutions = GENGAR,Level,36
 #-------------------------------
 [GENGAR]
 Name = Gengar
@@ -2517,7 +2517,7 @@ Habitat = Cave
 Category = Rock Snake
 Pokedex = There is a magnet in its brain that prevents an Onix from losing direction while tunneling. As it grows older, its body becomes steadily rounder and smoother.
 Generation = 1
-Evolutions = STEELIX,TradeItem,METALCOAT
+Evolutions = STEELIX,HoldItem,METALCOAT
 #-------------------------------
 [DROWZEE]
 Name = Drowzee
@@ -2964,7 +2964,7 @@ Habitat = RoughTerrain
 Category = Drill
 Pokedex = Its horn, which rotates like a drill, destroys tall buildings with one strike. It stands on its hind legs, and its brain is well developed.
 Generation = 1
-Evolutions = RHYPERIOR,TradeItem,PROTECTOR
+Evolutions = RHYPERIOR,HoldItem,PROTECTOR
 #-------------------------------
 [CHANSEY]
 Name = Chansey
@@ -3100,7 +3100,7 @@ Category = Dragon
 Pokedex = The poisonous barbs all over its body are highly valued as ingredients for making traditional herbal medicine. It shows no mercy to anything approaching its nest.
 Generation = 1
 WildItemUncommon = DRAGONSCALE
-Evolutions = KINGDRA,TradeItem,DRAGONSCALE
+Evolutions = KINGDRA,HoldItem,DRAGONSCALE
 #-------------------------------
 [GOLDEEN]
 Name = Goldeen
@@ -3263,7 +3263,7 @@ Habitat = Grassland
 Category = Mantis
 Pokedex = Its blindingly fast speed adds to the sharpness of its twin forearm scythes. The scythes can slice through thick logs in one wicked stroke.
 Generation = 1
-Evolutions = SCIZOR,TradeItem,METALCOAT,KLEAVOR,Item,BLACKAUGURITE
+Evolutions = SCIZOR,HoldItem,METALCOAT,KLEAVOR,Item,BLACKAUGURITE
 #-------------------------------
 [JYNX]
 Name = Jynx
@@ -3315,7 +3315,7 @@ Category = Electric
 Pokedex = When a storm approaches, it competes with others to scale heights that are likely to be stricken by lightning. Some towns use Electabuzz as lightning rods.
 Generation = 1
 WildItemUncommon = ELECTIRIZER
-Evolutions = ELECTIVIRE,TradeItem,ELECTIRIZER
+Evolutions = ELECTIVIRE,HoldItem,ELECTIRIZER
 #-------------------------------
 [MAGMAR]
 Name = Magmar
@@ -3342,7 +3342,7 @@ Category = Spitfire
 Pokedex = In battle, it blows out intense flames from all over its body to intimidate its foe. These fiery bursts create heat waves that ignite grass and trees.
 Generation = 1
 WildItemUncommon = MAGMARIZER
-Evolutions = MAGMORTAR,TradeItem,MAGMARIZER
+Evolutions = MAGMORTAR,HoldItem,MAGMARIZER
 #-------------------------------
 [PINSIR]
 Name = Pinsir
@@ -3627,7 +3627,7 @@ Habitat = Urban
 Category = Virtual
 Pokedex = It is capable of reverting itself entirely back to program data in order to enter cyberspace. A Porygon is copy-protected so it cannot be duplicated.
 Generation = 1
-Evolutions = PORYGON2,TradeItem,UPGRADE
+Evolutions = PORYGON2,HoldItem,UPGRADE
 #-------------------------------
 [OMANYTE]
 Name = Omanyte
@@ -6145,7 +6145,7 @@ Habitat = Urban
 Category = Virtual
 Pokedex = It was created by humans using the power of science. It has been given artificial intelligence that enables it to learn new gestures and emotions on its own.
 Generation = 2
-Evolutions = PORYGONZ,TradeItem,DUBIOUSDISC
+Evolutions = PORYGONZ,HoldItem,DUBIOUSDISC
 #-------------------------------
 [STANTLER]
 Name = Stantler
@@ -9214,7 +9214,7 @@ Habitat = WatersEdge
 Category = Fish
 Pokedex = Feebas live in ponds that are heavily infested with weeds. Because of its hopelessly shabby appearance, it seems as if few trainers raise it.
 Generation = 3
-Evolutions = MILOTIC,Beauty,170,MILOTIC,TradeItem,PRISMSCALE
+Evolutions = MILOTIC,Beauty,170,MILOTIC,HoldItem,PRISMSCALE
 #-------------------------------
 [MILOTIC]
 Name = Milotic
@@ -9403,7 +9403,7 @@ Category = Beckon
 Pokedex = It is thought that its body is hollow with only a spectral ball of fire burning inside. However, no one has been able to confirm this theory as fact.
 Generation = 3
 WildItemUncommon = SPELLTAG
-Evolutions = DUSKNOIR,TradeItem,REAPERCLOTH
+Evolutions = DUSKNOIR,HoldItem,REAPERCLOTH
 #-------------------------------
 [TROPIUS]
 Name = Tropius
@@ -9668,7 +9668,7 @@ Pokedex = A Clamperl slams its shell closed on prey to prevent escape. The pearl
 Generation = 3
 WildItemCommon = PEARL
 WildItemUncommon = BIGPEARL
-Evolutions = HUNTAIL,TradeItem,DEEPSEATOOTH,GOREBYSS,TradeItem,DEEPSEASCALE
+Evolutions = HUNTAIL,HoldItem,DEEPSEATOOTH,GOREBYSS,HoldItem,DEEPSEASCALE
 #-------------------------------
 [HUNTAIL]
 Name = Huntail
@@ -13666,7 +13666,7 @@ Pokedex = Because its energy was too great to be contained, the energy leaked an
 Generation = 5
 WildItemCommon = EVERSTONE
 WildItemUncommon = HARDSTONE
-Evolutions = GIGALITH,Trade,
+Evolutions = GIGALITH,Level,36
 #-------------------------------
 [GIGALITH]
 Name = Gigalith
@@ -13870,7 +13870,7 @@ Shape = Bipedal
 Category = Muscular
 Pokedex = They strengthen their bodies by carrying steel beams. They show off their big muscles to their friends.
 Generation = 5
-Evolutions = CONKELDURR,Trade,
+Evolutions = CONKELDURR,Level,36
 #-------------------------------
 [CONKELDURR]
 Name = Conkeldurr
@@ -15271,7 +15271,7 @@ Shape = Bipedal
 Category = Clamping
 Pokedex = When they feel threatened, they spit an acidic liquid to drive attackers away. This Pokémon targets Shelmet.
 Generation = 5
-Evolutions = ESCAVALIER,Trade,
+Evolutions = ESCAVALIER,Level,36
 #-------------------------------
 [ESCAVALIER]
 Name = Escavalier
@@ -15970,7 +15970,7 @@ Shape = Head
 Category = Snail
 Pokedex = It evolves when bathed in an electric-like energy along with Karrablast. The reason is still unknown.
 Generation = 5
-Evolutions = ACCELGOR,Trade,
+Evolutions = ACCELGOR,Level,36
 #-------------------------------
 [ACCELGOR]
 Name = Accelgor
@@ -17619,7 +17619,7 @@ Shape = HeadArms
 Category = Perfume
 Pokedex = It emits a scent that enraptures those who smell it. This fragrance changes depending on what it has eaten.
 Generation = 6
-Evolutions = AROMATISSE,TradeItem,SACHET
+Evolutions = AROMATISSE,HoldItem,SACHET
 #-------------------------------
 [AROMATISSE]
 Name = Aromatisse
@@ -17669,7 +17669,7 @@ Shape = HeadLegs
 Category = Cotton Candy
 Pokedex = To entangle its opponents in battle, it extrudes white threads as sweet and sticky as cotton candy.
 Generation = 6
-Evolutions = SLURPUFF,TradeItem,WHIPPEDDREAM
+Evolutions = SLURPUFF,HoldItem,WHIPPEDDREAM
 #-------------------------------
 [SLURPUFF]
 Name = Slurpuff
@@ -18268,7 +18268,7 @@ Shape = HeadArms
 Category = Stump
 Pokedex = These Pokémon are stumps possessed by the spirits of children who died in the forest. Their cries sound like eerie screams.
 Generation = 6
-Evolutions = TREVENANT,Trade,
+Evolutions = TREVENANT,Level,36
 #-------------------------------
 [TREVENANT]
 Name = Trevenant
@@ -18319,7 +18319,7 @@ Pokedex = When taking spirits to the afterlife, small Pumpkaboo prefer the spiri
 FormName = Small Size
 Generation = 6
 Flags = InheritFormFromMother
-Evolutions = GOURGEIST,Trade,
+Evolutions = GOURGEIST,Level,36
 #-------------------------------
 [GOURGEIST]
 Name = Gourgeist
@@ -23640,7 +23640,7 @@ Habitat = Grassland
 Category = Mouse
 Pokedex = When its group is attacked, Pawmo is the first to leap into battle, defeating enemies with a fighting technique that utilizes electric shocks.
 Generation = 9
-Evolutions = PAWMOT,Walk,1000
+Evolutions = PAWMOT,Level,30
 #-------------------------------
 [PAWMOT]
 Name = Pawmot
@@ -24278,7 +24278,7 @@ Habitat = RoughTerrain
 Category = Tumbleweed
 Pokedex = A soul unable to move on to the afterlife was blown around by the wind until it got tangled up with dried grass and became a Pokémon.
 Generation = 9
-Evolutions = BRAMBLEGHAST,Walk,1000
+Evolutions = BRAMBLEGHAST,Level,30
 #-------------------------------
 [BRAMBLEGHAST]
 Name = Brambleghast
@@ -24463,7 +24463,7 @@ Habitat = RoughTerrain
 Category = Rolling
 Pokedex = This Pokémon creates a mud ball by mixing sand and dirt with psychic energy. It treasures its mud ball more than its own life.
 Generation = 9
-Evolutions = RABSCA,Walk,1000
+Evolutions = RABSCA,Level,30
 #-------------------------------
 [RABSCA]
 Name = Rabsca
@@ -24728,7 +24728,7 @@ Habitat = Sea
 Category = Dolphin
 Pokedex = It likes playing with others of its kind using the water ring on its tail. It uses ultrasonic waves to sense the emotions of other living creatures.
 Generation = 9
-Evolutions = PALAFIN,LevelWithPartner,38
+Evolutions = PALAFIN,Level,38
 #-------------------------------
 [PALAFIN]
 Name = Palafin

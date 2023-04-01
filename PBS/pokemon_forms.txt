@@ -84,7 +84,7 @@ Pokedex = With its incisors, it gnaws through doors and infiltrates people's hom
 Generation = 7
 Flags = InheritFormWithEverStone
 WildItemUncommon = PECHABERRY
-Evolutions = RATICATE,LevelNight,20
+Evolutions = RATICATE,Level,20
 #-------------------------------
 [RATICATE,1]
 FormName = Alolan
@@ -381,7 +381,7 @@ Pokedex = The stalks of leeks are thicker and longer in the Galar region. Farfet
 Generation = 8
 Flags = InheritFormWithEverStone
 WildItemCommon = LEEK
-Evolutions = SIRFETCHD,BattleDealCriticalHit,3
+Evolutions = SIRFETCHD,HoldItem,LEEK
 #-------------------------------
 [GRIMER,1]
 FormName = Alolan
@@ -437,7 +437,7 @@ Generation = 7
 #-------------------------------
 [CUBONE,1]
 Generation = 7
-Evolutions = MAROWAK,LevelNight,28
+Evolutions = MAROWAK,Item,DUSKSTONE
 #-------------------------------
 [MAROWAK,1]
 FormName = Alolan
@@ -836,7 +836,7 @@ TutorMoves = ASSURANCE,ATTRACT,BLIZZARD,BODYPRESS,BODYSLAM,DIG,ENDURE,FACADE,FAK
 Pokedex = It uses its long tongue to taunt opponents. Once the opposition is enraged, this Pokémon hurls itself at the opponent, tackling them forcefully.
 Generation = 8
 Flags = InheritFormWithEverStone
-Evolutions = OBSTAGOON,LevelNight,35
+Evolutions = OBSTAGOON,Level,35
 #-------------------------------
 [GARDEVOIR,1]
 FormName = Mega Gardevoir
@@ -1391,7 +1391,7 @@ TutorMoves = ALLYSWITCH,ATTRACT,BRUTALSWING,CALMMIND,DARKPULSE,EARTHPOWER,EARTHQ
 Pokedex = A clay slab with cursed engravings took possession of a Yamask. The slab is said to be absorbing the Yamask's dark power.
 Generation = 8
 Flags = InheritFormWithEverStone
-Evolutions = RUNERIGUS,EventAfterDamageTaken,2
+Evolutions = RUNERIGUS,Level,35
 #-------------------------------
 [DEERLING,1]
 FormName = Summer Form
