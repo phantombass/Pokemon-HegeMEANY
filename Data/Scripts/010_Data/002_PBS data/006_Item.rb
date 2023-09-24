@@ -123,7 +123,7 @@ module GameData
     def is_icon_mail?;       return has_flag?("IconMail"); end
     def is_poke_ball?;       return has_flag?("PokeBall") || has_flag?("SnagBall"); end
     def is_snag_ball?;       return has_flag?("SnagBall") || (is_poke_ball? && $player.has_snag_machine); end
-    def is_berry?;           return has_flag?("Berry"); end
+    def is_berry?;           return has_flag?("HealBerry") || has_flag?("TypeReduceBerry") || has_flag?("StatusBerry") || has_flag?("PinchBerry") || has_flag?("Berry"); end
     def is_key_item?;        return has_flag?("KeyItem"); end
     def is_evolution_stone?; return has_flag?("EvolutionStone"); end
     def is_fossil?;          return has_flag?("Fossil"); end

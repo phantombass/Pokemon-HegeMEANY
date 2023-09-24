@@ -1,6 +1,6 @@
 Name = Generation 9 Pack
-Version = 1.0
+Version = 2.0
 Website = https://www.reliccastle.com/threads/5817/
-Credits = Caruban
+Credits = Caruban, Lucidious89
 Essentials = 20.1
-Requires = v20.1 Hotfixes
+Requires = v20.1 Hotfixes,1.0.7

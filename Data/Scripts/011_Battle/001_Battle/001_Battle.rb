@@ -74,6 +74,7 @@ class Battle
   attr_reader   :initialItems
   attr_reader   :recycleItems
   attr_reader   :belch
+  attr_accessor :doublebattle
   attr_reader   :battleBond
   attr_reader   :corrosiveGas
   attr_reader   :usedInBattle     # Whether each Pokémon was used in battle (for Burmy)
@@ -141,6 +142,7 @@ class Battle
     @rules             = {}
     @priority          = []
     @priorityTrickRoom = false
+    @doublebattle      = false
     @choices           = []
     @megaEvolution     = [
       [-1] * (@player ? @player.length : 1),
@@ -522,6 +524,7 @@ class Battle
         return [0, 2] if opposes?(idxBattler)
         return [1]
       when 2   # 2v2 double
+        @doublebattle = true
         return [[3, 1], [2, 0], [1, 3], [0, 2]][idxBattler]
       when 3   # 2v3
         return [[5, 3, 1], [2, 0], [3, 1, 5]][idxBattler] if idxBattler < 3
